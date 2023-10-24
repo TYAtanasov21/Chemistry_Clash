@@ -1,11 +1,11 @@
 #include <iostream>
 #include "raylib.h"
-int main()
+void window()
 {
     const int screenWidth = 800;
     const int screenHeight = 450;
     Image logo = LoadImage("images/Logo.png");
-    InitWindow(screenWidth, screenHeight, "basic window");
+    InitWindow(screenWidth, screenHeight, "Chemistry clash");
     SetWindowIcon(logo);
 
     SetTargetFPS(60);
@@ -16,5 +16,9 @@ int main()
         DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
         EndDrawing();
     }
-    CloseWindow();   
+    CloseWindow();
+}
+int main()
+{
+    window(); 
 }
