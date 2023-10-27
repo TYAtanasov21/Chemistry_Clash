@@ -1,5 +1,7 @@
-#include <iostream>
-#include "raylib.h"
+#include "game.h"
+
+
+
 void window()
 {
     const int screenWidth = 800;
@@ -17,8 +19,4 @@ void window()
         EndDrawing();
     }
     CloseWindow();
-}
-int main()
-{
-    window(); 
 }
