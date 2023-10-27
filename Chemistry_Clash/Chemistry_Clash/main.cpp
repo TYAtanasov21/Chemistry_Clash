@@ -1,9 +1,10 @@
 #include <iostream>
 #include "game.h"
 #include "raylib.h"
-
-    
+#include "mainMenu.h"
 
 int main() {
-    window();
+	mainMenu *a = new mainMenu;
+	
+	
 }
