@@ -5,6 +5,5 @@
 
 int main() {
 	mainMenu *a = new mainMenu;
-	
-	
+	delete a;
 }

@@ -1,5 +1,5 @@
 #include "game.h"
 
-screenD game::getScreenD() {
+screenD game :: getScreenD() {
     return { screenWidth, screenHeight };
 }
