@@ -1,15 +1,19 @@
 #include "mainMenu.h"
-#include "colours.h"
+#include "func.h"
+
+
+
 mainMenu::mainMenu() {
-    colours* c = new colours;
     InitWindow(screenWidth, screenHeight, "Chemistry Clash");
     SetWindowIcon(logo);
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(c->getColour("darkBlue"));
-        DrawText("Chemistry clash", 190, 200, 60, LIGHTGRAY);
+        ClearBackground(DARKGRAY);
+
+ 
+                makeButton({ (float)screenWidth / 2, (float)screenHeight / 2 }, "PLAY", 50, 200, 100, 5, LIGHTGRAY, BLACK, GRAY);
         EndDrawing();
     }
     CloseWindow();
