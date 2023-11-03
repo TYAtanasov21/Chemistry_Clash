@@ -12,7 +12,8 @@ mainMenu::mainMenu() {
         BeginDrawing();
         ClearBackground(DARKGRAY);
         SetWindowIcon(logo);
-                makeButton({ (float)screenWidth / 2, (float)screenHeight / 2 }, "PLAY", 50, 200, 100, 5, LIGHTGRAY, BLACK, GRAY);
+        drawTextC("Click here to play", screenWidth/2, screenHeight/2 - 100, 50, BLACK);
+            makeButton({ (float)screenWidth / 2, (float)screenHeight / 2 }, "PLAY", 50, 200, 100, 5, LIGHTGRAY, BLACK, GRAY);
         EndDrawing();
     }
     CloseWindow();

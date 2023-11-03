@@ -8,3 +8,6 @@ void makeButton(Vector2 btnPos, std::string text, int textSize, int btnWidth, in
 	DrawText(text.c_str(), (btnPos.x - btnWidth / 2) + (btnWidth - MeasureText(text.c_str(), textSize)) / 2, btnPos.y - (btnHeight) /2 + (btnHeight - textSize)/2, textSize, txtClr);
 }
 
+void drawTextC(std::string text, int posX, int posY ,int textSize, Colour clr) {
+	DrawText(text.c_str(), posX - MeasureText(text.c_str(), textSize)/2, posY - textSize/2, textSize, clr);
+}
