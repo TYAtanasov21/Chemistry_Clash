@@ -1,9 +1,16 @@
-#include <iostream>
-#include "game.h"
-#include "raylib.h"
-#include "mainMenu.h"
 
-int main() {
-	mainMenu *a = new mainMenu;
-	delete a;
+#include "Manager.h"
+
+int main() 
+{
+	std::shared_ptr<Manager> manager = Manager::GetInstance();
+
+	manager->Initialize();
+
+	while (!manager->ShouldWindowClose()) 
+	{
+		manager->Update();
+	}
+
+	return 0;
 }

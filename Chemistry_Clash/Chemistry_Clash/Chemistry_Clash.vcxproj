@@ -142,15 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="func.cpp" />
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="func.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
