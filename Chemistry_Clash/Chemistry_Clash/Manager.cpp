@@ -1,6 +1,5 @@
 #include "Manager.h"
 
-
 std::shared_ptr<Manager> Manager::instance = nullptr;
 
 Manager::~Manager()
@@ -28,7 +27,7 @@ void Manager::Update()
 {
     BeginDrawing();
     button.Draw();
-    ClearBackground(RAYWHITE);
+    ClearBackground(BLUE);
     EndDrawing();
     if (button.IsClicked()) {
         Close();

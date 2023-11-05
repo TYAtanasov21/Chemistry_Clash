@@ -1,12 +1,11 @@
 #pragma once
-
 #include <cstdint>
 #include <raylib.h>
 #include <memory>
 #include "Button.h"
 
-#define SCREEN_WIDTH 1000
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1500
+#define SCREEN_HEIGHT 800
 #define SCREEN_TITLE "Chemistry Clash"
 
 class Manager
