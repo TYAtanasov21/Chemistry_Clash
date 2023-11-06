@@ -4,8 +4,8 @@
 #include <memory>
 #include "Button.h"
 
-#define SCREEN_WIDTH 1500
-#define SCREEN_HEIGHT 800
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 720
 #define SCREEN_TITLE "Chemistry Clash"
 
 class Manager
