@@ -1,6 +1,7 @@
 #include "Button.h"
 
-Button::Button(Rectangle body, std::string text, int textSize, Color bodyColor, Color textColor) {
+Button::Button(Rectangle body, std::string text, int textSize, Color bodyColor, Color textColor) 
+{
 	this->body = body;
 	this->text = text;
 	this->textSize = textSize;

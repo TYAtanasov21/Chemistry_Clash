@@ -3,10 +3,8 @@
 #include <raylib.h>
 #include <memory>
 #include "Button.h"
-
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
-#define SCREEN_TITLE "Chemistry Clash"
+#include "Scene.h"
+#include "Macro.h"
 
 class Manager
 {
@@ -35,7 +33,6 @@ private:
     static std::shared_ptr<Manager> instance;
 
     bool shouldWindowClose = false;
-
-    Rectangle rec = {500, 300, 200, 100};
-    Button button = {rec, "Hello", 50, RED, WHITE};
+        
+    Scene* scene = new Scene(LIGHTGRAY);
 };

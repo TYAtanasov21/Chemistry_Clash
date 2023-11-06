@@ -20,18 +20,14 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    
+
+    scene->LoadScene();
 }
 
 void Manager::Update()
 {
     BeginDrawing();
-    button.Draw();
-    ClearBackground(BLUE);
     EndDrawing();
-    if (button.IsClicked()) {
-        Close();
-    }
 }
 
 bool Manager::ShouldWindowClose()
