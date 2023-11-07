@@ -20,13 +20,15 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-
-    scene->LoadScene();
+    Rectangle tempRec = { (SCREEN_WIDTH-200) / 2, (SCREEN_HEIGHT-100) / 2, 200, 100 };
+    std::vector<Button> tempButton = { {tempRec , "Text", 40, RED, BLUE}  };
+    scene->InitButtonList(tempButton);
 }
 
 void Manager::Update()
 {
     BeginDrawing();
+    scene->LoadScene();
     EndDrawing();
 }
 

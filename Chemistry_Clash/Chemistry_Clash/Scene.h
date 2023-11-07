@@ -7,11 +7,10 @@ class Scene {
 public:
 	Scene(Color backgroundColor);
 	void LoadScene();
-	void AddRec(Rectangle);
-	void AddRec(int x, int y, int width, int height);
+	void InitButtonList(std::vector<Button> buttonList);
 
 private:
 	Color backgroundColor;
-	std::vector<Rectangle> rectangleV;
+	std::vector<Button> buttonList;
 };
 

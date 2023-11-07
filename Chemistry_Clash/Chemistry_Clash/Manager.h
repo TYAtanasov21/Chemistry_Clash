@@ -27,7 +27,7 @@ public:
 
     bool ShouldWindowClose();
 
-    void Close();
+    void Close(); 
 
 private:
     static std::shared_ptr<Manager> instance;

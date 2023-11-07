@@ -10,6 +10,7 @@
 class Button {
 public:
 	Button(Rectangle body, std::string text, int textSize, Color bodyColor, Color textColor);
+	Button();
 
 	void Draw();
 
