@@ -21,7 +21,7 @@
 </ul>
 <h3>Presentation</h3>
 <ul>
-<li>presentation link</li>
+<li><a href="documents/Presentation - Chemistry clash.pptx" download>Presentation</a></li>
 </ul>
 <hr>
 <h2>🖥️Technologies</h2>
