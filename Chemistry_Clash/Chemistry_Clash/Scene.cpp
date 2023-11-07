@@ -1,15 +1,5 @@
 #include "Scene.h"
 
-Scene::Scene(Color backgroundColor) {
-	this->backgroundColor = backgroundColor;
-}
-
-void Scene::LoadScene() {
-	ClearBackground(backgroundColor);
-	for (auto itr = buttonList.begin(); itr != buttonList.end(); itr++) {
-		itr->Draw();
-	}
-}
 //
 //void Scene::AddRec(Rectangle rec) {
 //	rectangleV.push_back(rec);
@@ -21,4 +11,16 @@ void Scene::LoadScene() {
 
 void Scene::InitButtonList(std::vector<Button> buttonList) {
 	this->buttonList = buttonList;
+}
+
+void Scene::SetBackgroundColor(Color backgroundColor) {
+	this->backgroundColor = backgroundColor;
+}
+
+void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor){
+	scene->SetBackgroundColor(backgroundColor);
+	scene->InitButtonList(buttonList);
+}
+std::vector<Button>& Scene::GetButtonList() {
+	return buttonList;
 }

@@ -20,9 +20,7 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    Rectangle tempRec = { (SCREEN_WIDTH-200) / 2, (SCREEN_HEIGHT-100) / 2, 200, 100 };
-    std::vector<Button> tempButton = { {tempRec , "Text", 40, RED, BLUE}  };
-    scene->InitButtonList(tempButton);
+    InitScene(scene, scene->GetButtonList(), LIGHTGRAY);
 }
 
 void Manager::Update()

@@ -5,6 +5,7 @@
 #include "Button.h"
 #include "Scene.h"
 #include "Macro.h"
+#include "MainMenu.h"
 
 class Manager
 {
@@ -33,6 +34,6 @@ private:
     static std::shared_ptr<Manager> instance;
 
     bool shouldWindowClose = false;
-        
-    Scene* scene = new Scene(LIGHTGRAY);
+
+    Scene* scene = new MainMenu();
 };
