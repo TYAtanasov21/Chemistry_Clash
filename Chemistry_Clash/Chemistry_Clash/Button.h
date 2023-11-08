@@ -23,5 +23,4 @@ private:
 	std::string text;
 	int textSize;
 	Color bodyColor, textColor;
-
 };

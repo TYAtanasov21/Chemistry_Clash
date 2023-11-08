@@ -28,5 +28,5 @@ void Button::DrawBorder() {
 }
 
 bool Button::IsClicked() {
-	return IsMouseButtonPressed(0) && CheckCollisionPointRec(GetMousePosition(), body);
+	return IsMouseButtonPressed(1) && CheckCollisionPointRec(GetMousePosition(), body);
 }

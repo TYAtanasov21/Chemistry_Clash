@@ -9,5 +9,4 @@ void MainMenu::LoadScene(){
 	for (auto itr = textList.begin(); itr != textList.end(); itr++) {
 		itr->Draw();
 	}
-
 }
