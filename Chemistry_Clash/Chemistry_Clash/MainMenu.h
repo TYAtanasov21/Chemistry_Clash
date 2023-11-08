@@ -5,6 +5,5 @@
 class MainMenu : public Scene {
 public:
 	//MainMenu();
-	virtual void LoadScene() override;
+	void LoadScene();
 };
-

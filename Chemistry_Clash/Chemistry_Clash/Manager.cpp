@@ -20,6 +20,11 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
+    std::vector<Button> test ={
+    { {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 200, 100}, "PLAY", 50, GRAY, BLACK },
+    { {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2+ 200, 200, 100}, "PLAY", 50, GRAY, BLACK },
+};
+    scene->InitButtonList(test);
     InitScene(scene, scene->GetButtonList(), LIGHTGRAY);
 }
 
