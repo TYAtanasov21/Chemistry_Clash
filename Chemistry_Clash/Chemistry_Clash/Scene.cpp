@@ -13,6 +13,10 @@ void Scene::InitButtonList(std::vector<Button> buttonList) {
 	this->buttonList = buttonList;
 }
 
+void Scene::InitTextList(std::vector<Text> textList) {
+	this->textList = textList;
+}
+
 void Scene::SetBackgroundColor(Color backgroundColor) {
 	this->backgroundColor = backgroundColor;
 }

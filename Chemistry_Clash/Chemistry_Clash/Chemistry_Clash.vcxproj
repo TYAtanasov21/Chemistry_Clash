@@ -147,9 +147,11 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Scene.h" />

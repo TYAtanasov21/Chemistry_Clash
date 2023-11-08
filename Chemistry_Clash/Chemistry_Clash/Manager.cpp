@@ -10,7 +10,7 @@ Manager::~Manager()
 void Manager::Initialize()
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
-
+    
     //ToggleFullscreen();
 
     SetTargetFPS(60);
@@ -20,11 +20,15 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    std::vector<Button> test ={
+    std::vector<Button> buttonList ={
     { {(SCREEN_WIDTH - 300) / 2,  200, 300, 100}, "PLAY", 50, GRAY, BLACK },
     { {(SCREEN_WIDTH - 300) / 2, SCREEN_HEIGHT- 300, 300, 100}, "SETTINGS", 50, GRAY, BLACK },
-};
-    scene->InitButtonList(test);
+    };
+    scene->InitButtonList(buttonList);
+    std::vector<Text> textList = {
+        {"Chemestry Clash", 50, {(SCREEN_WIDTH - (float)MeasureText("Chemestry Clash", 50)) / 2, 50}}
+    };
+    scene->InitTextList(textList);
     InitScene(scene, scene->GetButtonList(), LIGHTGRAY);
 }
 
