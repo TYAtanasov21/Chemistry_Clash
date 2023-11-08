@@ -20,17 +20,13 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    std::vector<Button> buttonList ={
-    {{(SCREEN_WIDTH - 300) / 2,  200, 300, 100}, "PLAY", 50, GRAY, BLACK },
-    {{(SCREEN_WIDTH - 300) / 2, 375, 300, 100}, "SETTINGS", 50, GRAY, BLACK },
-    {{(SCREEN_WIDTH - 300) / 2, 550, 300, 100}, "QUIT", 50, GRAY, BLACK },
-    };
-    scene->InitButtonList(buttonList);
-    std::vector<Text> textList = {
-        {"Chemestry Clash", 80, {(SCREEN_WIDTH - (float)MeasureText("Chemestry Clash", 80)) / 2, 50}}
-    };
-    scene->InitTextList(textList);
-    InitScene(scene, scene->GetButtonList(), LIGHTGRAY);
+    scene->SetBackgroundColor(LIGHTGRAY);
+
+    scene->AddButton({ {(SCREEN_WIDTH - 300) / 2,  200, 300, 100}, "PLAY", 50, GRAY, BLACK, []() {} });
+    scene->AddButton({ {(SCREEN_WIDTH - 300) / 2, 375, 300, 100}, "SETTINGS", 50, GRAY, BLACK, []() {} });
+    scene->AddButton({ {(SCREEN_WIDTH - 300) / 2, 550, 300, 100}, "QUIT", 50, GRAY, BLACK, []() {CloseWindow(); }});
+
+    scene->AddText({ "Chemestry Clash", 80, {(SCREEN_WIDTH - (float)MeasureText("Chemestry Clash", 80)) / 2, 50} });
 }
 
 void Manager::Update()

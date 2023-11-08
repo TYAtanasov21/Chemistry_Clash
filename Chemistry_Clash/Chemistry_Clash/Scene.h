@@ -8,8 +8,8 @@ class Scene {
 public:
 	//Scene();
 	virtual void LoadScene() = 0;
-	void InitButtonList(std::vector<Button> buttonList);
-	void InitTextList(std::vector<Text> textList);
+	void AddButton(Button button);
+	void AddText(Text text);
 	void SetBackgroundColor(Color backgroundColor);
 	std::vector<Button>& GetButtonList();
 protected:
@@ -18,4 +18,4 @@ protected:
 	std::vector<Text> textList;
 };
 
-void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor);
+//void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor);

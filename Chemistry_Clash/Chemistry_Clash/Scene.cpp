@@ -9,22 +9,22 @@
 //	rectangleV.push_back(rec);
 //}
 
-void Scene::InitButtonList(std::vector<Button> buttonList) {
-	this->buttonList = buttonList;
+void Scene::AddButton(Button button) {
+	this->buttonList.push_back(button);
 }
 
-void Scene::InitTextList(std::vector<Text> textList) {
-	this->textList = textList;
+void Scene::AddText(Text text) {
+	this->textList.push_back(text);
 }
 
 void Scene::SetBackgroundColor(Color backgroundColor) {
 	this->backgroundColor = backgroundColor;
 }
 
-void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor) {
-	scene->SetBackgroundColor(backgroundColor);
-	scene->InitButtonList(buttonList);
-}
+//void InitScene(Scene* scene, Color backgroundColor) {
+//	scene->SetBackgroundColor(backgroundColor);
+//}
+
 std::vector<Button>& Scene::GetButtonList() {
 	return buttonList;
 }
