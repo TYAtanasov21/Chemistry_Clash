@@ -17,7 +17,7 @@ void Scene::SetBackgroundColor(Color backgroundColor) {
 	this->backgroundColor = backgroundColor;
 }
 
-void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor){
+void InitScene(Scene* scene, std::vector<Button> buttonList, Color backgroundColor) {
 	scene->SetBackgroundColor(backgroundColor);
 	scene->InitButtonList(buttonList);
 }

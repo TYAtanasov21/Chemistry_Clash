@@ -4,7 +4,7 @@
 
 class MainMenu : public Scene {
 public:
-	MainMenu();
+	//MainMenu();
 	virtual void LoadScene() override;
 };
 

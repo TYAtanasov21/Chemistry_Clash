@@ -5,8 +5,8 @@
 
 class Scene {
 public:
-	Scene();
-	virtual void LoadScene();
+	//Scene();
+	virtual void LoadScene() = 0;
 	void InitButtonList(std::vector<Button> buttonList);
 	void SetBackgroundColor(Color backgroundColor);
 	std::vector<Button>& GetButtonList();
