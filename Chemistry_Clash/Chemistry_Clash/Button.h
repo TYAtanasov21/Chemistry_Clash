@@ -16,12 +16,12 @@ public:
 
 	void DrawBorder();
 
-	void IsClicked();
+	bool IsClicked();
+
+	std::function<void()> GetLambda();
 
 private:
-
 	std::function<void()> lambda;
-
 	Rectangle body;
 	std::string text;
 	int textSize;

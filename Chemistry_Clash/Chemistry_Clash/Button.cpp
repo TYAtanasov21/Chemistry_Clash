@@ -16,7 +16,6 @@ void Button::Draw() {
 	int textX = body.x + (body.width - MeasureText(text.c_str(), textSize))/2;
 	int textY = body.y + (body.height - textSize) / 2;
 	DrawText(text.c_str(), textX, textY, textSize, textColor);
-	this->IsClicked();
 }
 
 void Button::DrawBorder() {
@@ -29,7 +28,10 @@ void Button::DrawBorder() {
 	DrawRectangleLinesEx(border, thickness, BLACK);
 }
 
-void Button::IsClicked() {
-	if (IsMouseButtonPressed(1) && CheckCollisionPointRec(GetMousePosition(), body))
-	this->lambda();
+std::function<void()> Button::GetLambda() {
+	return this->lambda;
+}
+
+bool Button::IsClicked() {
+	return (IsMouseButtonPressed(0) && CheckCollisionPointRec(GetMousePosition(), body));
 }
