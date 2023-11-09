@@ -18,7 +18,7 @@ public:
 
 	bool IsClicked();
 
-	std::function<void()> GetLambda();
+	void Update();
 
 private:
 	std::function<void()> lambda;

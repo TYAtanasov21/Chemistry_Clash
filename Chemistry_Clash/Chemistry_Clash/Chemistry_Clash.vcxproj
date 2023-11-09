@@ -145,17 +145,20 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

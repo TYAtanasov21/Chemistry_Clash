@@ -1,9 +1,22 @@
 #include "SceneManager.h"
 
-SceneManager::SceneManager(Scene* scene) {
-	this->scene = scene;
+std::shared_ptr<SceneManager> SceneManager::instance = nullptr;
+
+void SceneManager::LoadScene() {
+	scene->LoadScene();
 }
 
-Scene* SceneManager::operator->() {
-	return this->scene;
+void SceneManager::UpdateScene() {
+	scene->ClearSceneBackground();
+	UIManager::GetInstance()->DrawAll();
+	UIManager::GetInstance()->UpdateAll();
+}
+
+//template<typename SceneType>
+void SceneManager::ChangeScene() {
+	//auto newScene = std::make_shared<SceneType>();
+	//scene = std::static_pointer_cast<Scene>(newScene);
+	scene = std::make_shared<MainMenu>();
+	UIManager::GetInstance()->UpdateLists();
+	this->LoadScene();
 }

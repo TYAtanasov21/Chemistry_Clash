@@ -1,11 +1,9 @@
 #pragma once
 #include <cstdint>
 #include <raylib.h>
-#include <memory>
-#include "Button.h"
-#include "Scene.h"
 #include "Macro.h"
-#include "MainMenu.h"
+#include "SceneManager.h"
+#include "UIManager.h"
 
 class Manager
 {
@@ -35,5 +33,4 @@ private:
 
     bool shouldWindowClose = false;
 
-    Scene* scene = new MainMenu();
 };

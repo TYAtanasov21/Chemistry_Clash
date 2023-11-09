@@ -28,8 +28,9 @@ void Button::DrawBorder() {
 	DrawRectangleLinesEx(border, thickness, BLACK);
 }
 
-std::function<void()> Button::GetLambda() {
-	return this->lambda;
+void Button::Update() {
+	if (IsClicked())
+		lambda();
 }
 
 bool Button::IsClicked() {

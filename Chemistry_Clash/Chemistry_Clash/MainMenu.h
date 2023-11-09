@@ -4,6 +4,6 @@
 
 class MainMenu : public Scene {
 public:
-	//MainMenu();
 	void LoadScene();
+
 };
