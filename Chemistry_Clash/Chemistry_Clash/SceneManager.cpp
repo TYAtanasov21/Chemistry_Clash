@@ -12,11 +12,11 @@ void SceneManager::UpdateScene() {
 	UIManager::GetInstance()->UpdateAll();
 }
 
-//template<typename SceneType>
+template<typename SceneType>
 void SceneManager::ChangeScene() {
 	//auto newScene = std::make_shared<SceneType>();
 	//scene = std::static_pointer_cast<Scene>(newScene);
-	scene = std::make_shared<MainMenu>();
+	scene = std::make_shared<SceneType>();
 	UIManager::GetInstance()->UpdateLists();
 	this->LoadScene();
 }

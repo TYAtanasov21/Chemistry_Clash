@@ -15,7 +15,7 @@ public:
 
 	void LoadScene();
 
-    //template<typename SceneType>
+    template<typename SceneType>
     void ChangeScene();
 
     void UpdateScene();

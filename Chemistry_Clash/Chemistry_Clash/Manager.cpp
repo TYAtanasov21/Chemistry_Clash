@@ -20,8 +20,7 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-
-    SceneManager::GetInstance()->ChangeScene();
+    SceneManager::GetInstance()->ChangeScene<MainMenu>();
 }
 
 void Manager::Update()
