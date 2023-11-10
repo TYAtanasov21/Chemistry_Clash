@@ -20,7 +20,7 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    SceneManager::GetInstance()->ChangeScene<MainMenu>();
+    SceneManager::GetInstance()->ChangeScene(std::make_shared<MainMenu>());
 }
 
 void Manager::Update()

@@ -15,8 +15,8 @@ public:
 
 	void LoadScene();
 
-    template<typename SceneType>
-    void ChangeScene();
+    //template<class SceneType>
+    void ChangeScene(std::shared_ptr<Scene> sceneType);
 
     void UpdateScene();
 
