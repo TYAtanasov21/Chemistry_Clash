@@ -143,16 +143,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CheckButton.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="SceneChanger.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CheckButton.h" />
+    <ClInclude Include="SceneChanger.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Manager.h" />

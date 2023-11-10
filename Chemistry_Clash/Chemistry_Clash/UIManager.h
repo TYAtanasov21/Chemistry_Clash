@@ -2,6 +2,7 @@
 
 #include "Button.h"
 #include "Text.h"
+#include "CheckButton.h"
 
 class UIManager {
 public:
@@ -20,6 +21,8 @@ public:
 
     void AddButton(Button button);
 
+    void AddCheckButton(CheckButton checkButton);
+
     void AddText(Text text);
 
     void UpdateLists();
@@ -28,6 +31,8 @@ private:
     static std::shared_ptr<UIManager> instance;
 
     std::vector<Button> buttonList;
+
+    std::vector<CheckButton> checkButtonList;
 
     std::vector<Text> textList;
 };

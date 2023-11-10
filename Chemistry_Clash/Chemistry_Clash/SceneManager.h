@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MainMenu.h"
+#include "Scene.h"
 
 class SceneManager {
 public:
@@ -15,15 +15,20 @@ public:
 
 	void LoadScene();
 
-    //template<class SceneType>
-    void ChangeScene(std::shared_ptr<Scene> sceneType);
+    void ChangeScene(std::string scene);
 
     void UpdateScene();
+
+    void SetScene(std::shared_ptr<Scene> newScene);
+
+    std::shared_ptr<Scene> GetScene();
+
+    std::string GetSceneString();
 
 private:
 
     static std::shared_ptr<SceneManager> instance;
 
 	std::shared_ptr<Scene> scene;
-
+    std::string sceneString;
 };

@@ -1,9 +1,10 @@
 #pragma once
+
 #include <cstdint>
 #include <raylib.h>
+
 #include "Macro.h"
-#include "SceneManager.h"
-#include "UIManager.h"
+#include "SceneChanger.h"
 
 class Manager
 {
@@ -32,5 +33,4 @@ private:
     static std::shared_ptr<Manager> instance;
 
     bool shouldWindowClose = false;
-
 };

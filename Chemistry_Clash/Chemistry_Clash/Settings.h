@@ -2,7 +2,7 @@
 
 #include "SceneManager.h"
 
-class MainMenu : public Scene {
+class Settings : public Scene {
 public:
 	void LoadScene();
 };

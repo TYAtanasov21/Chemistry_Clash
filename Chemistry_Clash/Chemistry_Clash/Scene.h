@@ -1,7 +1,9 @@
 #pragma once
+
 #include <iostream>
 #include <memory>
 #include <vector>
+
 #include "UIManager.h"
 
 class Scene {

@@ -20,13 +20,14 @@ void Manager::Initialize()
 
 void Manager::Start()
 {
-    SceneManager::GetInstance()->ChangeScene(std::make_shared<MainMenu>());
+    SceneManager::GetInstance()->ChangeScene("Main Menu");
 }
 
 void Manager::Update()
 {
     BeginDrawing();
 
+    LoadNewScene();
     SceneManager::GetInstance()->UpdateScene();
 
     EndDrawing();
