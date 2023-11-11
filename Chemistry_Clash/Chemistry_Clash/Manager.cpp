@@ -27,7 +27,7 @@ void Manager::Update()
 {
     BeginDrawing();
     GetFPS();
-    DrawFPS(0, 0);
+    //DrawFPS(0, 0);
     LoadNewScene();
     SceneManager::GetInstance()->UpdateScene();
 
