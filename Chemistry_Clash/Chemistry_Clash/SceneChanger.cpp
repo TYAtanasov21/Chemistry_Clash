@@ -14,6 +14,10 @@ void LoadNewScene() {
     if (newScene == "Settings")
         sceneManager->SetScene(std::make_shared<Settings>());
 
+
+    if (newScene == "Play")
+        sceneManager->SetScene(std::make_shared<Play>());
+
     //UIManager::GetInstance()->UpdateLists();
     sceneManager->LoadScene();
 }

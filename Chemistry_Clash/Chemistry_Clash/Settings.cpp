@@ -9,7 +9,7 @@ void Settings::LoadScene() {
 		SceneManager::GetInstance()->ChangeScene("Main Menu");
 	} });
 
-	UIManager->AddText({ "Chemistry Clash", 80, {(SCREEN_WIDTH - (float)MeasureText("Chemistry Clash", 80)) / 2, 50} });
+	UIManager->AddText({ "Settings", 80, {(SCREEN_WIDTH - (float)MeasureText("Settings", 80)) / 2, 50} });
 
 	backgroundColor = LIGHTPURPLE;
 

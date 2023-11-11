@@ -4,6 +4,12 @@
 #include "Text.h"
 #include "CheckButton.h"
 
+struct  Rectangle2
+{
+    Rectangle rec;
+    Color recColor;
+};
+
 class UIManager {
 public:
 
@@ -25,6 +31,8 @@ public:
 
     void AddText(Text text);
 
+    void AddRec(Rectangle2);
+
     void UpdateLists();
 
 private:
@@ -35,4 +43,6 @@ private:
     std::vector<CheckButton> checkButtonList;
 
     std::vector<Text> textList;
+
+    std::vector<Rectangle2> rectangleList;
 };

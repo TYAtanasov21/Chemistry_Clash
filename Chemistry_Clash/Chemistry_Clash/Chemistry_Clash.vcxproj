@@ -144,9 +144,11 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CheckButton.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Play.cpp" />
     <ClCompile Include="SceneChanger.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Settings.cpp" />
@@ -156,6 +158,8 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="CheckButton.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Play.h" />
     <ClInclude Include="SceneChanger.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Settings.h" />

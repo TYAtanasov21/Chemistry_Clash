@@ -15,6 +15,10 @@ void UIManager::AddText(Text text) {
 	this->textList.push_back(text);
 }
 
+void UIManager::AddRec(Rectangle2 rec){
+	this->rectangleList.push_back(rec);
+}
+
 void UIManager::UpdateAll() {
 	for (auto button : buttonList) {
 		button.Update();
@@ -25,6 +29,9 @@ void UIManager::UpdateAll() {
 }
 
 void UIManager::DrawAll() {
+	for (auto rec : rectangleList) {
+		DrawRectangleRec(rec.rec, rec.recColor);
+	}
 	for (auto button : buttonList) {
 		button.Draw();
 	}
@@ -40,4 +47,5 @@ void UIManager::UpdateLists() {
 	buttonList.clear();
 	textList.clear();
 	checkButtonList.clear();
+	rectangleList.clear();
 }
