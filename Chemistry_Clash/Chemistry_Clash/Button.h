@@ -18,6 +18,8 @@ public:
 
 	bool IsClicked();
 
+	bool IsHovered();
+
 	void Update();
 
 private:
@@ -25,5 +27,5 @@ private:
 	Rectangle body;
 	std::string text;
 	int textSize;
-	Color bodyColor, textColor;
+	Color bodyColor, textColor, bodyColorSecondary;
 };

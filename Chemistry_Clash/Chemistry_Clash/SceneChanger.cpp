@@ -14,6 +14,6 @@ void LoadNewScene() {
     if (newScene == "Settings")
         sceneManager->SetScene(std::make_shared<Settings>());
 
-    UIManager::GetInstance()->UpdateLists();
+    //UIManager::GetInstance()->UpdateLists();
     sceneManager->LoadScene();
 }

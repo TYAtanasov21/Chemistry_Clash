@@ -13,7 +13,7 @@ public:
         return instance;
     }
 
-	void LoadScene();
+    void LoadScene();
 
     void ChangeScene(std::string scene);
 
@@ -28,7 +28,7 @@ public:
 private:
 
     static std::shared_ptr<SceneManager> instance;
-
-	std::shared_ptr<Scene> scene;
+    bool isSceneLoaded = 0;
+    std::shared_ptr<Scene> scene;
     std::string sceneString;
 };

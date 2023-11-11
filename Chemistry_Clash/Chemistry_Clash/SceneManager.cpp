@@ -3,7 +3,13 @@
 std::shared_ptr<SceneManager> SceneManager::instance = nullptr;
 
 void SceneManager::LoadScene() {
-    scene->LoadScene();
+    if (!isSceneLoaded) {
+        UIManager::GetInstance()->UpdateLists();
+        scene->LoadScene();
+        isSceneLoaded = 1;
+
+    }
+
 }
 
 void SceneManager::UpdateScene() {
@@ -13,6 +19,7 @@ void SceneManager::UpdateScene() {
 }
 
 void SceneManager::ChangeScene(std::string scene) {
+    isSceneLoaded = 0;
     this->scene = nullptr;
     this->sceneString = scene;
 }
