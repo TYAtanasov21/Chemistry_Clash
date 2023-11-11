@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <stdlib.h>
 #include "raylib.h"
 #include "SceneManager.h"
 
@@ -32,6 +33,35 @@ private:
 	int speed;
 	int armour;
 	bool canJump=1;
+};
+
+class Villain {
+public:
+	Villain(int health, int strength, int armour);
+
+	Image GetImage();
+
+	void ResizeImage(int width, int height);
+
+	Texture2D GetTexture();
+
+	int GetHealth();
+
+	int GetStrength();
+
+	int GetArmour();
+	
+	std::string GetVillainName();
+
+	int GetIdentifier();
+private:
+
+	Image villainImage;
+	int health;
+	int strength;
+	int armour;
+	int identifier;
+	std::string villainName;
 };
 
 

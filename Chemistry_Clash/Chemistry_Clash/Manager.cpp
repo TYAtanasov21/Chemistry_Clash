@@ -13,7 +13,7 @@ void Manager::Initialize()
 
     Image img = LoadImage("../assets/Logo.png");
     SetWindowIcon(img);
-    //ToggleFullscreen();
+    /*ToggleFullscreen();*/
     SetTargetFPS(60);
     Start();
 }
@@ -26,7 +26,8 @@ void Manager::Start()
 void Manager::Update()
 {
     BeginDrawing();
-
+    GetFPS();
+    DrawFPS(0, 0);
     LoadNewScene();
     SceneManager::GetInstance()->UpdateScene();
 
