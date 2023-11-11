@@ -4,10 +4,16 @@
 #include "Text.h"
 #include "CheckButton.h"
 
-struct  Rectangle2
+struct  RectangleV2
 {
     Rectangle rec;
     Color recColor;
+};
+
+struct TextureV {
+    Texture2D texture;
+    Rectangle frameRec;
+    Vector2 pos;
 };
 
 class UIManager {
@@ -31,7 +37,9 @@ public:
 
     void AddText(Text text);
 
-    void AddRec(Rectangle2);
+    void AddRec(RectangleV2 rec);
+
+    void AddTexture(TextureV texture);
 
     void UpdateLists();
 
@@ -44,5 +52,7 @@ private:
 
     std::vector<Text> textList;
 
-    std::vector<Rectangle2> rectangleList;
+    std::vector<RectangleV2> rectangleList;
+
+    std::vector<TextureV> textureList;
 };

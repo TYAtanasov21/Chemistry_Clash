@@ -15,9 +15,14 @@ void UIManager::AddText(Text text) {
 	this->textList.push_back(text);
 }
 
-void UIManager::AddRec(Rectangle2 rec){
+void UIManager::AddRec(RectangleV2 rec){
 	this->rectangleList.push_back(rec);
 }
+
+void UIManager::AddTexture(TextureV texture) {
+	this->textureList.push_back(texture);
+}
+
 
 void UIManager::UpdateAll() {
 	for (auto button : buttonList) {
@@ -31,6 +36,9 @@ void UIManager::UpdateAll() {
 void UIManager::DrawAll() {
 	for (auto rec : rectangleList) {
 		DrawRectangleRec(rec.rec, rec.recColor);
+	}
+	for (auto texture : textureList) {
+		DrawTextureRec(texture.texture, texture.frameRec , texture.pos ,WHITE);
 	}
 	for (auto button : buttonList) {
 		button.Draw();
@@ -48,4 +56,5 @@ void UIManager::UpdateLists() {
 	textList.clear();
 	checkButtonList.clear();
 	rectangleList.clear();
+	textureList.clear();
 }

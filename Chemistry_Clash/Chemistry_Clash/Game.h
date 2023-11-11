@@ -6,7 +6,11 @@
 
 class Player {
 public:
-	Player(int health, int strength, int speed);
+	Player(int health, int strength, int speed, int armour);
+
+	Image GetImage();
+
+	void ResizeImage(int width, int height);
 
 	Texture2D GetTexture();
 	
@@ -16,9 +20,13 @@ public:
 
 	int	GetSpeed();
 
+	int GetArmour();
+
+	
 
 private:
-	Texture2D playerTexture = LoadTexture("assets\.png\The-ecological-captain.png");
+
+	Image playerImage = LoadImage("../assets/.png/The ecological captain.png");
 	int health; 
 	int strength;
 	int speed;

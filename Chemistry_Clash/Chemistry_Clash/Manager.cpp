@@ -10,7 +10,7 @@ Manager::~Manager()
 void Manager::Initialize()
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
-    //Set window's logo
+
     Image img = LoadImage("../assets/Logo.png");
     SetWindowIcon(img);
     //ToggleFullscreen();
