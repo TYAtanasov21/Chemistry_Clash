@@ -38,7 +38,6 @@
 <h3>Programming languages:</h3>
 <p align = "left">
     <a href="https://www.cplusplus.com/"><img src="https://brandslogos.com/wp-content/uploads/thumbs/c-logo-vector.svg" alt="C++ logo" width="50px"/></a>
-    <a href="https://www.raylib.com/"><img src = "https://upload.wikimedia.org/wikipedia/commons/f/f4/Raylib_logo.png" alt = "Raylib logo" width = 48px /></a>
 </p>
 <h3>Softwares used for visual elements:</h3>
     <a href = "https://www.piskelapp.com/"><img src = "https://avatars.githubusercontent.com/u/28667131?s=280&v=4" alt = "Piskel logo" width = 50px /></a>
