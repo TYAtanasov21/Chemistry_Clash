@@ -66,3 +66,7 @@ void UIManager::ToggleFPS() {
 bool UIManager::GetShouldFpsShow() {
 	return this->shouldFpsShow;
 }
+
+bool UIManager::GetShouldFullscreen() {
+	return this->shouldFullscreen;
+}

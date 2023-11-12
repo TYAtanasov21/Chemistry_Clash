@@ -46,9 +46,12 @@ public:
     void ToggleFPS();
     
     bool GetShouldFpsShow();
+    
+    bool GetShouldFullscreen();
 
 private:
 
+    bool shouldFullscreen = 0;
     bool shouldFpsShow = 0;
 
     static std::shared_ptr<UIManager> instance;

@@ -9,7 +9,7 @@
 
 class CheckButton {
 public:
-	CheckButton(Rectangle body, std::string text, int textSize, Color mainBodyColor, Color checkBoxBodyColor, Color textColor, std::function<void()> lambda, bool execLambdaIfClicked = 0);
+	CheckButton(Rectangle body, std::string text, int textSize, Color mainBodyColor, Color checkBoxBodyColor, Color textColor, std::function<void()> lambda, bool isChecked ,bool execLambdaIfClicked = 0);
 
 	void Draw();
 

@@ -28,10 +28,11 @@ void Manager::Update()
 {
     BeginDrawing();
     GetFPS();
-    if (UIManager::GetInstance()->GetShouldFpsShow())
-        DrawFPS(10,10);
     LoadNewScene();
     SceneManager::GetInstance()->UpdateScene();
+
+    if (UIManager::GetInstance()->GetShouldFpsShow())
+        DrawFPS(2, 0);
 
     EndDrawing();
 }
