@@ -7,15 +7,16 @@ void SceneManager::LoadScene() {
         UIManager::GetInstance()->UpdateLists();
         scene->LoadScene();
         isSceneLoaded = 1;
-
-    }
+        std::cout << "Loaded";
+     }
 
 }
 
 void SceneManager::UpdateScene() {
     scene->ClearSceneBackground();
-    UIManager::GetInstance()->DrawAll();
     UIManager::GetInstance()->UpdateAll();
+    UIManager::GetInstance()->DrawAll();
+
 }
 
 void SceneManager::ChangeScene(std::string scene) {

@@ -15,11 +15,12 @@ public:
 
 	void DrawBorder();
 
-	void IsClicked();
+	bool IsClicked();
 
 	void Update();
 private:
-	bool isChecked = 0;
+	double time;
+	bool isChecked;
 	std::function<void()> lambda;
 	Rectangle mainBody;
 	Rectangle checkBoxBody;

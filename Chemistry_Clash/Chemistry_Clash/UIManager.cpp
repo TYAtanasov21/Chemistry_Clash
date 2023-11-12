@@ -6,7 +6,7 @@ void UIManager::AddButton(Button button) {
 	this->buttonList.push_back(button);
 }
 
-void UIManager::AddCheckButton(CheckButton checkButton) {
+void UIManager::AddCheckButton(CheckButton* checkButton) {
 	this->checkButtonList.push_back(checkButton);
 }
 
@@ -29,24 +29,24 @@ void UIManager::UpdateAll() {
 		button.Update();
 	}
 	for (auto checkButton : checkButtonList) {
-		checkButton.Update();
+		checkButton->Update();
 	}
 }
 
 void UIManager::DrawAll() {
-	for (auto rec : rectangleList) {
+	for (const auto& rec : rectangleList) {
 		DrawRectangleRec(rec.rec, rec.recColor);
 	}
-	for (auto texture : textureList) {
+	for (const auto& texture : textureList) {
 		DrawTextureRec(texture.texture, texture.frameRec , texture.pos ,WHITE);
 	}
-	for (auto button : buttonList) {
+	for (Button button : buttonList) {
 		button.Draw();
 	}
-	for (auto checkButton : checkButtonList) {
-		checkButton.Draw();
+	for (CheckButton* checkButton : checkButtonList) {
+		checkButton->Draw();
 	}
-	for (auto text : textList) {
+	for (Text text : textList) {
 		text.Draw();
 	}
 }

@@ -1,9 +1,11 @@
 #include "Settings.h"
 
 void Settings::LoadScene() {
+
 	auto UIManager = UIManager::GetInstance();
 
-	UIManager->AddCheckButton({ {(SCREEN_WIDTH - 500) / 2,  200, 500, 100}, "FULLSCREEN", 50, PURPLE, WHITE, BLACK, []() {}});
+	CheckButton *fullScreen = new CheckButton({(SCREEN_WIDTH - 500) / 2,  200, 500, 100}, "FULLSCREEN", 50, PURPLE, WHITE, BLACK, []() {} );
+	UIManager->AddCheckButton(fullScreen);
 
 	UIManager->AddButton({ {(SCREEN_WIDTH - 300) / 2, 550, 300, 100}, "BACK", 50, PURPLE, BLACK, []() {
 		SceneManager::GetInstance()->ChangeScene("Main Menu");

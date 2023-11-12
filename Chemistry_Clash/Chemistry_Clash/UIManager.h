@@ -33,7 +33,7 @@ public:
 
     void AddButton(Button button);
 
-    void AddCheckButton(CheckButton checkButton);
+    void AddCheckButton(CheckButton* checkButton);
 
     void AddText(Text text);
 
@@ -48,7 +48,7 @@ private:
 
     std::vector<Button> buttonList;
 
-    std::vector<CheckButton> checkButtonList;
+    std::vector<CheckButton*> checkButtonList;
 
     std::vector<Text> textList;
 
