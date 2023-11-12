@@ -45,6 +45,8 @@ public:
 
     void AddTexture(TextureV texture);
 
+    void AddQuestion(Question* question);
+
     void UpdateLists();
 
     void ToggleFPS();
@@ -73,4 +75,6 @@ private:
     std::vector<TextureV> textureList;
 
     std::vector<Input*> intputList;
+
+    std::vector<Question*> questionList;
 };

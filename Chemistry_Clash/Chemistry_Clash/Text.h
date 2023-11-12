@@ -10,11 +10,14 @@
 class Text {
 public:
 
-	void Draw();
 
 	Text(std::string text, int textSize, Vector2 textPos, Color textColor = BLACK);
 
+	void Draw();
+
 	int GetTextSize();
+
+
 private:
 	std::string text;
 	int textSize;

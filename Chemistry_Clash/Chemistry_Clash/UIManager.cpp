@@ -28,6 +28,10 @@ void UIManager::AddTexture(TextureV texture) {
 	this->textureList.push_back(texture);
 }
 
+void UIManager::AddQuestion(Question* question) {
+	this->questionList.push_back(question);
+}
+
 
 void UIManager::UpdateAll() {
 	for (auto button : buttonList) {
@@ -38,6 +42,9 @@ void UIManager::UpdateAll() {
 	}
 	for (auto input : intputList) {
 		input->Update();
+	}
+	for (auto question : questionList) {
+		question->Update();
 	}
 }
 
@@ -60,6 +67,10 @@ void UIManager::DrawAll() {
 	for (Input* input : intputList) {
 		input->Draw();
 	}
+
+	for (Question* question : questionList) {
+		question->Draw();
+	}
 }
 
 void UIManager::UpdateLists() {
@@ -69,6 +80,7 @@ void UIManager::UpdateLists() {
 	rectangleList.clear();
 	textureList.clear();
 	intputList.clear();
+	questionList.clear();
 }
 
 void UIManager::ToggleFPS() {

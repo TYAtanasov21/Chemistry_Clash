@@ -1,6 +1,6 @@
 
 #include "Manager.h"
-#include <functional>
+
 
 int main() 
 {

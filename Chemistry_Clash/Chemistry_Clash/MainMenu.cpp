@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "Manager.h"
 
 void MainMenu::LoadScene(){
 	auto UIManager = UIManager::GetInstance();
@@ -12,7 +13,7 @@ void MainMenu::LoadScene(){
 	} });
 
 	UIManager->AddButton({ {(SCREEN_WIDTH - 300) / 2, 550, 300, 100}, "QUIT", 50, PURPLE, BLACK, []() {
-		CloseWindow();
+		Manager::GetInstance()->Close();
 	} });
 
 	UIManager->AddText({ "Chemistry Clash", 80, {(SCREEN_WIDTH - (float)MeasureText("Chemistry Clash", 80)) / 2, 50} });
