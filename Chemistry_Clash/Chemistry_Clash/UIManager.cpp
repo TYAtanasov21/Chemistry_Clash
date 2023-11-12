@@ -58,3 +58,11 @@ void UIManager::UpdateLists() {
 	rectangleList.clear();
 	textureList.clear();
 }
+
+void UIManager::ToggleFPS() {
+	this->shouldFpsShow = !this->shouldFpsShow;
+}
+
+bool UIManager::GetShouldFpsShow() {
+	return this->shouldFpsShow;
+}

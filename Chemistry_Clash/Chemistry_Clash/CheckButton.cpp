@@ -1,6 +1,6 @@
 #include "CheckButton.h"
 
-CheckButton::CheckButton(Rectangle mainBody, std::string text, int textSize, Color mainBodyColor, Color checkBoxBodyColor, Color textColor, std::function<void()> lambda)
+CheckButton::CheckButton(Rectangle mainBody, std::string text, int textSize, Color mainBodyColor, Color checkBoxBodyColor, Color textColor, std::function<void()> lambda, bool execLambdaIfClicked)
 {
 	this->mainBody = mainBody;
 	this->text = text;
@@ -16,8 +16,9 @@ CheckButton::CheckButton(Rectangle mainBody, std::string text, int textSize, Col
 
 	this->isChecked = 0;
 	std::cout << "Constructed" << '\n';
+
+	this->execLambdaIfClicked = execLambdaIfClicked;
 	
-	this->time = GetTime();
 
 }
 
@@ -32,7 +33,7 @@ void CheckButton::Draw() {
 	}
 	else {
 
-		DrawRectangleRec(checkBoxBody, GREEN);
+		DrawRectangleRec(checkBoxBody, NAVYBLUE);
 
 	}
 
@@ -54,8 +55,14 @@ void CheckButton::DrawBorder() {
 void CheckButton::Update() {
 	if (IsClicked()) {
 			isChecked = !isChecked;
-			time = GetTime();
 	}
+	if (execLambdaIfClicked) {
+		if (IsClicked()) {
+			lambda();
+		}
+	}
+	else lambda();
+
 }
 
 bool CheckButton::IsClicked() {

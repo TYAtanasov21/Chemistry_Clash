@@ -43,7 +43,14 @@ public:
 
     void UpdateLists();
 
+    void ToggleFPS();
+    
+    bool GetShouldFpsShow();
+
 private:
+
+    bool shouldFpsShow = 0;
+
     static std::shared_ptr<UIManager> instance;
 
     std::vector<Button> buttonList;

@@ -21,13 +21,15 @@ void Manager::Initialize()
 void Manager::Start()
 {
     SceneManager::GetInstance()->ChangeScene("Main Menu");
+    
 }
 
 void Manager::Update()
 {
     BeginDrawing();
     GetFPS();
-    //DrawFPS(0, 0);
+    if (UIManager::GetInstance()->GetShouldFpsShow())
+        DrawFPS(10,10);
     LoadNewScene();
     SceneManager::GetInstance()->UpdateScene();
 

@@ -23,6 +23,7 @@ public:
 	void Update();
 
 private:
+
 	std::function<void()> lambda;
 	Rectangle body;
 	std::string text;

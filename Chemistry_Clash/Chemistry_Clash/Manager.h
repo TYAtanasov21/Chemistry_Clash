@@ -32,5 +32,6 @@ public:
 private:
     static std::shared_ptr<Manager> instance;
 
-    bool shouldWindowClose = false;
+    bool shouldWindowClose = 0;
+
 };
