@@ -1,4 +1,5 @@
 #include "Play.h"
+#include "Manager.h"
 
 void Play::LoadScene() {
 
@@ -7,7 +8,7 @@ void Play::LoadScene() {
 	auto UIManager = UIManager::GetInstance();
 
 	UIManager->AddRec({ {20, 20, 300 , SCREEN_HEIGHT - 100 - 60}, PURPLE });
-
+	UIManager->AddText({ "QUIZ", 60, {(SCREEN_WIDTH - (float)MeasureText("QUIZ", 60))/2, 20}, BLACK });
 	UIManager->AddText({ "YOUR STATS", 33, {40 + (260 - (float)MeasureText("YOUR STATS", 33)) / 2, 40} , BLACK });
 
 	std::string healthStatStringPlayer = "Health: " + std::to_string(p.GetHealth());
@@ -33,8 +34,8 @@ void Play::LoadScene() {
 		armourStatStringPlayer = "Health: " + std::to_string(p.GetArmour());
 	} });
 
-	UIManager->AddButton({ {20 - 2.5, SCREEN_HEIGHT - 100 - 20, 300, 100}, "BACK", 50, PURPLE, BLACK, []() {
-		SceneManager::GetInstance()->ChangeScene("Main Menu");
+	UIManager->AddButton({ {20 - 2.5, SCREEN_HEIGHT - 100 - 20, 300, 100}, "QUIT", 50, PURPLE, BLACK, []() {
+		Manager::GetInstance()->Close(); 
 	} });
 
 	p.ResizeImage(240 * 3, 240 * 3);
@@ -88,17 +89,27 @@ void Play::LoadScene() {
 
 	std::string answer1 = answer;
 	bool answeredCorrectly1;
-	Text* text1= new Text(questionString, 30, { 340, 110 }, BLACK);
-	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly1]() {
-		if (answeredCorrectly1)
-			std::cout << "Test";
+
+	Text* text1 = new Text(questionString, 30, { 340, 110 }, BLACK);
+
+	Input* input1 = new Input({ SCREEN_WIDTH - 430 - 100, 100, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer1, &input1, &answeredCorrectly1]() {
+		answeredCorrectly1 = input1->GetInputString() == answer1;
 		});
-	Input* input1= new Input({ SCREEN_WIDTH - 430 - 100, 100, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [&answer1, input1, answer]() {
-		answer1 = input1->GetInputString() == answer;
+
+
+	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly1, &button1, &input1, &p]() {
+		input1->CallLambda();
+		if (answeredCorrectly1) {
+			p.SetArmour(p.GetArmour() + 10);
+			std::cout << p.GetArmour();
+		}
+		input1->ToggleCanInput();
+		button1->ToggleClicking();
 		});
 
 	Question* question1 = new Question(text1, answer, button1, input1, 40);
 	UIManager->AddQuestion(question1);
+
 
 	// -------------------------------------------------------------------------------------------------------------------
 
@@ -121,14 +132,14 @@ void Play::LoadScene() {
 	std::string answer2 = answer;
 	bool answeredCorrectly2;
 
-	Text* text2 = new Text(questionString, 30, { 340, 170 }, BLACK);
+	Text* text2 = new Text(questionString, 30, { 340, 210 }, BLACK);
 
-	Input* input2 = new Input({ SCREEN_WIDTH - 430 - 100, 160, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer2, &input2, &answeredCorrectly2]() {
+	Input* input2 = new Input({ SCREEN_WIDTH - 430 - 100, 200, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer2, &input2, &answeredCorrectly2]() {
 		answeredCorrectly2 = input2->GetInputString() == answer2;
 		});
 
 
-	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 160, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly2, &button2, &input2, &p]() {
+	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 200, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly2, &button2, &input2, &p]() {
 		input2->CallLambda();
 		if (answeredCorrectly2) {
 			p.SetArmour(p.GetArmour() + 10);
@@ -163,14 +174,14 @@ void Play::LoadScene() {
 	std::string answer3 = answer;
 	bool answeredCorrectly3;
 
-	Text* text3 = new Text(questionString, 30, { 340, 230 }, BLACK);
+	Text* text3 = new Text(questionString, 30, { 340, 310 }, BLACK);
 
-	Input* input3 = new Input({ SCREEN_WIDTH - 430 - 100, 220, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer3, &input3, &answeredCorrectly3]() {
+	Input* input3 = new Input({ SCREEN_WIDTH - 430 - 100, 300, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer3, &input3, &answeredCorrectly3]() {
 		answeredCorrectly3 = input3->GetInputString() == answer3;
 		});
 
 
-	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 220, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly3, &button3, &input3, &p]() {
+	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 300, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly3, &button3, &input3, &p]() {
 		input3->CallLambda();
 		if (answeredCorrectly3) {
 			p.SetArmour(p.GetArmour() + 10);
@@ -204,14 +215,14 @@ void Play::LoadScene() {
 	std::string answer4 = answer;
 	bool answeredCorrectly4;
 
-	Text* text4 = new Text(questionString, 30, { 340, 290 }, BLACK);
+	Text* text4 = new Text(questionString, 30, { 340, 410 }, BLACK);
 
-	Input* input4 = new Input({ SCREEN_WIDTH - 430 - 100, 280, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer4, &input4, &answeredCorrectly4]() {
+	Input* input4 = new Input({ SCREEN_WIDTH - 430 - 100, 400, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer4, &input4, &answeredCorrectly4]() {
 		answeredCorrectly4 = input4->GetInputString() == answer4;
 		});
 
 
-	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 280, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly4, &button4, &input4, &p]() {
+	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 400, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly4, &button4, &input4, &p]() {
 		input4->CallLambda();
 		if (answeredCorrectly4) {
 			p.SetArmour(p.GetArmour() + 10);
@@ -223,11 +234,6 @@ void Play::LoadScene() {
 
 	Question* question4 = new Question(text4, answer, button4, input4, 40);
 	UIManager->AddQuestion(question4);
-
-	//Input input1({ 400,200,100,100 }, 40, PURPLE, BLACK, 1, 1, []() {});
-	//UIManager->AddInput(&input1);
-
-	
 
 	backgroundColor = LIGHTPURPLE;
 }
