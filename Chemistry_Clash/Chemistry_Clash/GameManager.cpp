@@ -23,6 +23,24 @@ int Player::GetSpeed() { return speed; }
 
 int Player::GetArmour() { return armour; }
 
+
+void Player::SetHealth(int value) {
+	this->health = value;
+}
+
+void Player::SetStrength(int value) {
+	this->strength = value;
+}
+
+void Player::SetSpeed(int value) {
+	this->speed = value;
+}
+
+void Player::SetArmour(int value) {
+	this->armour = value;
+}
+
+
 //Initialize villian class
 Villain::Villain(int health, int strength, int armour)
 {
@@ -66,3 +84,4 @@ int Villain::GetArmour() { return armour; }
 std::string Villain::GetVillainName() { return villainName; }
 
 int Villain::GetIdentifier() { return identifier; }
+

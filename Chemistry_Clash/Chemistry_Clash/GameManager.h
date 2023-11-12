@@ -23,7 +23,13 @@ public:
 
 	int GetArmour();
 
-	
+	void SetHealth(int value);
+
+	void SetStrength(int value);
+
+	void SetSpeed(int value);
+
+	void SetArmour(int value);
 
 private:
 

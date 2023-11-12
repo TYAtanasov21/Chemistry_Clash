@@ -15,10 +15,23 @@ void Play::LoadScene() {
 	std::string speedStatStringPlayer = "Speed: " + std::to_string(p.GetSpeed());
 	std::string armourStatStringPlayer = "Armour: " + std::to_string(p.GetArmour());
 
-	UIManager->AddText({ healthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(healthStatStringPlayer.c_str(), 30)) / 2, 110} , BLACK });
-	UIManager->AddText({ strengthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(strengthStatStringPlayer.c_str(), 30)) / 2, 150 } , BLACK });
-	UIManager->AddText({ speedStatStringPlayer, 30, {40 + (260 - (float)MeasureText(speedStatStringPlayer.c_str(), 30)) / 2, 190} , BLACK });
-	UIManager->AddText({ armourStatStringPlayer, 30, {40 + (260 - (float)MeasureText(armourStatStringPlayer.c_str(), 30)) / 2, 230} , BLACK });
+	UIManager->AddText({ healthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(healthStatStringPlayer.c_str(), 30)) / 2, 110} , BLACK,
+		[&healthStatStringPlayer, &p]() {
+		healthStatStringPlayer = "Health: " + std::to_string(p.GetHealth());
+	} });
+	UIManager->AddText({ strengthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(strengthStatStringPlayer.c_str(), 30)) / 2, 150 } , BLACK,
+		[&strengthStatStringPlayer, &p]() {
+		strengthStatStringPlayer = "Health: " + std::to_string(p.GetStrength());
+	} });
+
+	UIManager->AddText({ speedStatStringPlayer, 30, {40 + (260 - (float)MeasureText(speedStatStringPlayer.c_str(), 30)) / 2, 190} , BLACK,
+		[&speedStatStringPlayer, &p]() {
+		speedStatStringPlayer = "Health: " + std::to_string(p.GetSpeed());
+	} });
+	UIManager->AddText({ armourStatStringPlayer, 30, {40 + (260 - (float)MeasureText(armourStatStringPlayer.c_str(), 30)) / 2, 230} , BLACK,
+		[&armourStatStringPlayer, &p]() {
+		armourStatStringPlayer = "Health: " + std::to_string(p.GetArmour());
+	} });
 
 	UIManager->AddButton({ {20 - 2.5, SCREEN_HEIGHT - 100 - 20, 300, 100}, "BACK", 50, PURPLE, BLACK, []() {
 		SceneManager::GetInstance()->ChangeScene("Main Menu");
@@ -36,7 +49,7 @@ void Play::LoadScene() {
 	std::string strengthStatStringVillain = "Strength: " + std::to_string(p.GetStrength());
 	std::string armourStatStringVillain = "Armour: " + std::to_string(p.GetArmour());
 
-	UIManager->AddText({ healthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(healthStatStringVillain.c_str(), 30)) / 2, 110} , BLACK });
+	UIManager->AddText({ healthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(healthStatStringVillain.c_str(), 30)) / 2, 110} , BLACK, []() {}});
 	UIManager->AddText({ strengthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(strengthStatStringVillain.c_str(), 30)) / 2, 150 } , BLACK });
 	UIManager->AddText({ armourStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(armourStatStringVillain.c_str(), 30)) / 2, 190} , BLACK });
 
@@ -56,48 +69,161 @@ void Play::LoadScene() {
 
 	/*Questions*/
 
-	Text* text1= new Text("4P + _O2 -> 2P203", 40, { 340, 105 }, BLACK);
-	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, []() {});
-	Input* input1= new Input({ SCREEN_WIDTH - 450 - 100, 100, 100, 40 }, 30, PURPLE, BLACK, 1, 1, []() {});
+	SetRandomSeed(time(NULL));
+	int randomValue = GetRandomValue(1, 3);
 
-	Question* question1 = new Question(text1, "3", button1, input1, 40);
+	std::string questionString, answer;
+	if (randomValue == 1) {
+		questionString = "4P + _O2 -> 2P203";
+		answer = "3";
+	}
+	if (randomValue == 2) {
+		questionString = "2Ca + O2 -> _CaO";
+		answer = "2";
+	}
+	if (randomValue == 3) {
+		questionString = "4Al + 3O2 -> 2Al_O3";
+		answer = "2";
+	}
+
+	std::string answer1 = answer;
+	bool answeredCorrectly1;
+	Text* text1= new Text(questionString, 30, { 340, 110 }, BLACK);
+	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly1]() {
+		if (answeredCorrectly1)
+			std::cout << "Test";
+		});
+	Input* input1= new Input({ SCREEN_WIDTH - 430 - 100, 100, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [&answer1, input1, answer]() {
+		answer1 = input1->GetInputString() == answer;
+		});
+
+	Question* question1 = new Question(text1, answer, button1, input1, 40);
 	UIManager->AddQuestion(question1);
 
 	// -------------------------------------------------------------------------------------------------------------------
 
-	Text* text2 = new Text("4P + _O2 -> 2P203", 40, { 340, 165 }, BLACK);
-	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 160, 100, 40 }, "Check", 30, PURPLE, BLACK, []() {});
-	Input* input2 = new Input({ SCREEN_WIDTH - 450 - 100, 160, 100, 40 }, 30, PURPLE, BLACK, 1, 1, []() {});
+	SetRandomSeed(time(NULL));
+	randomValue = GetRandomValue(1, 3);
 
-	Question* question2 = new Question(text2, "3", button2, input2, 40);
+	if (randomValue == 1) {
+		questionString = "2P + _Cl2 -> 2PCL3";
+		answer = "3";
+	}
+	if (randomValue == 2) {
+		questionString = "Ca + Cl_ -> CaCl2";
+		answer = "2";
+	}
+	if (randomValue == 3) {
+		questionString = "2CO + O2 -> _CO2";
+		answer = "2";
+	}
+
+	std::string answer2 = answer;
+	bool answeredCorrectly2;
+
+	Text* text2 = new Text(questionString, 30, { 340, 170 }, BLACK);
+
+	Input* input2 = new Input({ SCREEN_WIDTH - 430 - 100, 160, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer2, &input2, &answeredCorrectly2]() {
+		answeredCorrectly2 = input2->GetInputString() == answer2;
+		});
+
+
+	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 160, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly2, &button2, &input2, &p]() {
+		input2->CallLambda();
+		if (answeredCorrectly2) {
+			p.SetArmour(p.GetArmour() + 10);
+			std::cout << p.GetArmour();
+		}
+		input2->ToggleCanInput();
+		button2->ToggleClicking();
+		});
+
+	Question* question2 = new Question(text2, answer, button2, input2, 40);
 	UIManager->AddQuestion(question2);
-
 // -------------------------------------------------------------------------------------------------------------------
 
-	Text* text3 = new Text("4P + _O2 -> 2P203", 40, { 340, 225 }, BLACK);
-	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 220, 100, 40 }, "Check", 30, PURPLE, BLACK, []() {});
-	Input* input3 = new Input({ SCREEN_WIDTH - 450 - 100, 220, 100, 40 }, 30, PURPLE, BLACK, 1, 1, []() {});
+	SetRandomSeed(time(NULL));
+	randomValue = GetRandomValue(1, 3);
 
-	Question* question3 = new Question(text3, "3", button3, input3, 40);
+
+	if (randomValue == 1) {
+		questionString = "S + H2 -> H_S";
+		answer = "2";
+	}
+	if (randomValue == 2) {
+		questionString = "_S + 3O2 -> 2SO3";
+		answer = "2";
+	}
+	if (randomValue == 3) {
+		questionString = "2K + S -> K_S";
+		answer = "2";
+	}
+
+
+	std::string answer3 = answer;
+	bool answeredCorrectly3;
+
+	Text* text3 = new Text(questionString, 30, { 340, 230 }, BLACK);
+
+	Input* input3 = new Input({ SCREEN_WIDTH - 430 - 100, 220, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer3, &input3, &answeredCorrectly3]() {
+		answeredCorrectly3 = input3->GetInputString() == answer3;
+		});
+
+
+	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 220, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly3, &button3, &input3, &p]() {
+		input3->CallLambda();
+		if (answeredCorrectly3) {
+			p.SetArmour(p.GetArmour() + 10);
+			std::cout << p.GetArmour();
+		}
+		input3->ToggleCanInput();
+		button3->ToggleClicking();
+		});
+
+	Question* question3 = new Question(text3, answer, button3, input3, 40);
 	UIManager->AddQuestion(question3);
 
 // -------------------------------------------------------------------------------------------------------------------
 
-	Text* text4 = new Text("4P + _O2 -> 2P203", 40, { 340, 285 }, BLACK);
-	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 280, 100, 40 }, "Check", 30, PURPLE, BLACK, []() {});
-	Input* input4 = new Input({ SCREEN_WIDTH - 450 - 100, 280, 100, 40 }, 30, PURPLE, BLACK, 1, 1, []() {});
+	SetRandomSeed(time(NULL));
+	randomValue = GetRandomValue(1, 3);
 
-	Question* question4 = new Question(text4, "3", button4, input4, 40);
+	if (randomValue == 1) {
+		questionString = "2Al + _Cl2 -> 2AlCl3";
+		answer = "3";
+	}
+	if (randomValue == 2) {
+		questionString = "Al + HCl -> AlCl_ + H2";
+		answer = "3";
+	}
+	if (randomValue == 3) {
+		questionString = "2H2 + O_ -> 2H2O";
+		answer = "2";
+	}
+
+	std::string answer4 = answer;
+	bool answeredCorrectly4;
+
+	Text* text4 = new Text(questionString, 30, { 340, 290 }, BLACK);
+
+	Input* input4 = new Input({ SCREEN_WIDTH - 430 - 100, 280, 80, 40 }, 30, PURPLE, BLACK, 1, 1, [answer4, &input4, &answeredCorrectly4]() {
+		answeredCorrectly4 = input4->GetInputString() == answer4;
+		});
+
+
+	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 280, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly4, &button4, &input4, &p]() {
+		input4->CallLambda();
+		if (answeredCorrectly4) {
+			p.SetArmour(p.GetArmour() + 10);
+			std::cout << p.GetArmour();
+		}
+			input4->ToggleCanInput();
+			button4->ToggleClicking();
+		});
+
+	Question* question4 = new Question(text4, answer, button4, input4, 40);
 	UIManager->AddQuestion(question4);
 
-// -------------------------------------------------------------------------------------------------------------------
-
-	Text* text5 = new Text("4P + _O2 -> 2P203", 40, { 340, 345 }, BLACK);
-	Button* button5 = new Button({ SCREEN_WIDTH - 340 - 100, 340, 100, 40 }, "Check", 30, PURPLE, BLACK, []() {});
-	Input* input5 = new Input({ SCREEN_WIDTH - 450 - 100, 340, 100, 40 }, 30, PURPLE, BLACK, 1, 1, []() {});
-
-	Question* question5 = new Question(text5, "3", button5, input5, 40);
-	UIManager->AddQuestion(question5);
 	//Input input1({ 400,200,100,100 }, 40, PURPLE, BLACK, 1, 1, []() {});
 	//UIManager->AddInput(&input1);
 

@@ -17,7 +17,7 @@ bool Input::IsHovered()
 }
 
 void Input::Draw() {
-	if (IsHovered()||isSelected)
+	if (IsHovered()||isSelected||!canInput)
 	{
 		DrawRectangleRec(body, bodyColorSecondary);
 	}
@@ -37,9 +37,13 @@ void Input::DrawBorder() {
 	Rectangle border = body;
 	border.width += offset;
 	border.height += offset;
+	if (isSelected) {
+		if(!canInput)
+			DrawRectangleLinesEx(border, thickness, BLACK);
+		else
+			DrawRectangleLinesEx(border, thickness, NAVYBLUE);
+	}
 	if(!isSelected)
-		DrawRectangleLinesEx(border, thickness, NAVYBLUE);
-	else
 		DrawRectangleLinesEx(border, thickness, BLACK);
 }
 
@@ -59,7 +63,7 @@ bool Input::IsSelected() {
 }
 
 void Input::AddChar() {
-	if (isSelected) {
+	if (isSelected && canInput) {
 		int key = GetKeyPressed();
 
 		if (key != KEY_BACKSPACE && key >= 33 && key <= 122) {
@@ -73,4 +77,16 @@ void Input::AddChar() {
 			}
 		}
 	}
+}
+
+std::string Input::GetInputString() {
+	return inputString;
+}
+
+void Input::CallLambda() {
+	lambda();
+}
+
+void Input::ToggleCanInput() {
+	this->canInput = !canInput;
 }

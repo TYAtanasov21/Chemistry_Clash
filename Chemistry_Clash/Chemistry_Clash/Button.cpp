@@ -15,7 +15,7 @@ bool Button::IsHovered()
 	return (CheckCollisionPointRec(GetMousePosition(), body));
 }
 void Button::Draw() {
-	if (IsHovered())
+	if (IsHovered() || !canClick)
 	{
 		DrawRectangleRec(body, bodyColorSecondary);
 	}
@@ -39,10 +39,16 @@ void Button::DrawBorder() {
 }
 
 void Button::Update() {
-	if (IsClicked())
-		lambda();
+	if (canClick) {
+		if (IsClicked())
+			lambda();
+	}
 }
 
 bool Button::IsClicked() {
 	return (IsMouseButtonPressed(0) && CheckCollisionPointRec(GetMousePosition(), body));
+}
+
+void Button::ToggleClicking() {
+	this->canClick = !canClick;
 }

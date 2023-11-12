@@ -26,7 +26,15 @@ public:
 
 	void Update();
 
+	void CallLambda();
+
+	void ToggleCanInput();
+
+	std::string GetInputString();
+
 private:
+	bool canInput = 1;
+
 	int maxInputSize;
 	int minInputSize;
 

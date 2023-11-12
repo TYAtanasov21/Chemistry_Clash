@@ -22,8 +22,11 @@ public:
 
 	void Update();
 
+	void ToggleClicking();
+
 private:
 
+	bool canClick = 1;
 	std::function<void()> lambda;
 	Rectangle body;
 	std::string text;
