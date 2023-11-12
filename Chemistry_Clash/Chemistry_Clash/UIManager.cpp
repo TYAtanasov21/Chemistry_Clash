@@ -10,6 +10,11 @@ void UIManager::AddCheckButton(CheckButton* checkButton) {
 	this->checkButtonList.push_back(checkButton);
 }
 
+void UIManager::AddInput(Input* input) {
+	this->intputList.push_back(input);
+}
+
+
 
 void UIManager::AddText(Text text) {
 	this->textList.push_back(text);
@@ -31,6 +36,9 @@ void UIManager::UpdateAll() {
 	for (auto checkButton : checkButtonList) {
 		checkButton->Update();
 	}
+	for (auto input : intputList) {
+		input->Update();
+	}
 }
 
 void UIManager::DrawAll() {
@@ -49,6 +57,9 @@ void UIManager::DrawAll() {
 	for (Text text : textList) {
 		text.Draw();
 	}
+	for (Input* input : intputList) {
+		input->Draw();
+	}
 }
 
 void UIManager::UpdateLists() {
@@ -57,11 +68,18 @@ void UIManager::UpdateLists() {
 	checkButtonList.clear();
 	rectangleList.clear();
 	textureList.clear();
+	intputList.clear();
 }
 
 void UIManager::ToggleFPS() {
 	this->shouldFpsShow = !this->shouldFpsShow;
 }
+
+void UIManager::ToggleFullScreen() {
+	ToggleFullscreen();
+	shouldFullscreen = !shouldFullscreen;
+}
+
 
 bool UIManager::GetShouldFpsShow() {
 	return this->shouldFpsShow;

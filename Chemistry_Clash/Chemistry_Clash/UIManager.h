@@ -3,6 +3,8 @@
 #include "Button.h"
 #include "Text.h"
 #include "CheckButton.h"
+#include "Input.h"
+#include "Question.h"
 
 struct  RectangleV2
 {
@@ -35,6 +37,8 @@ public:
 
     void AddCheckButton(CheckButton* checkButton);
 
+    void AddInput(Input* input);
+
     void AddText(Text text);
 
     void AddRec(RectangleV2 rec);
@@ -44,6 +48,8 @@ public:
     void UpdateLists();
 
     void ToggleFPS();
+
+    void ToggleFullScreen();
     
     bool GetShouldFpsShow();
     
@@ -65,4 +71,6 @@ private:
     std::vector<RectangleV2> rectangleList;
 
     std::vector<TextureV> textureList;
+
+    std::vector<Input*> intputList;
 };

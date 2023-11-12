@@ -5,8 +5,8 @@ void Settings::LoadScene() {
 	auto UIManager = UIManager::GetInstance();
 
 	CheckButton* fullScreen = new CheckButton({ (SCREEN_WIDTH - 500) / 2,  200, 500, 100 }, "FULLSCREEN", 50, PURPLE, WHITE, BLACK,
-		[]() {
-			ToggleFullscreen();
+		[UIManager]() {
+			UIManager->ToggleFullScreen();
 		}, UIManager->GetShouldFullscreen(), 1);
 	UIManager->AddCheckButton(fullScreen);
 

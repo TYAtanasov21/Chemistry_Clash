@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "GameManager.h"
 //Initialize player class
 Player::Player(int health, int strength, int speed, int armour) {
 	this->health = health;

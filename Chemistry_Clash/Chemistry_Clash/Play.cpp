@@ -53,6 +53,9 @@ void Play::LoadScene() {
 
 	UIManager->AddButton({ {(SCREEN_WIDTH-320) - 2.5, SCREEN_HEIGHT - 120, 300, 100}, "FIGHT!", 50, PURPLE, BLACK, []() {}});
 
+	Input input1({ 400,200,100,100 }, 40, PURPLE, BLACK, 1, 1, []() {});
+	UIManager->AddInput(&input1);
+
 	backgroundColor = LIGHTPURPLE;
 }
 
