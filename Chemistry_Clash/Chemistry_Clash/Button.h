@@ -10,26 +10,26 @@
 
 class Button {
 public:
-	Button(Rectangle body, std::string text, int textSize, Color bodyColor, Color textColor, std::function<void()> lambda);
+	Button(Rectangle body, std::string text, int textSize, Color bodyColor, Color textColor, std::function<void()> lambda); // Declare Button constructor
 
-	void Draw();
+	void Draw(); // Function used for drawing button
 
-	void DrawBorder();
+	void DrawBorder(); // Function used for drawing button border
 
-	bool IsClicked();
+	bool IsClicked(); // Checks if user has clicked on button
 
-	bool IsHovered();
+	bool IsHovered(); // Checks if user is hovering over button with mouse
 
 	void Update();
 
-	void ToggleClicking();
+	void ToggleClicking(); // Toggles permission to click on button
 
 private:
 
-	bool canClick = 1;
+	bool canClick = 1; // Permission to click on button
 	std::function<void()> lambda;
-	Rectangle body;
-	std::string text;
-	int textSize;
+	Rectangle body; // Button body
+	std::string text; // Button text
+	int textSize; // Button text font size
 	Color bodyColor, textColor, bodyColorSecondary;
 };

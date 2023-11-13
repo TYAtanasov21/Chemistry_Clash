@@ -1,7 +1,7 @@
 #include "MainMenu.h"
 #include "Manager.h"
 
-void MainMenu::LoadScene(){
+void MainMenu::LoadScene(){ // Override for virtual LoadScene
 	auto UIManager = UIManager::GetInstance();
 
 	UIManager->AddButton({ {(SCREEN_WIDTH - 300) / 2,  200, 300, 100}, "PLAY", 50, PURPLE, BLACK, []() {

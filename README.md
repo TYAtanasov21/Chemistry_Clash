@@ -8,8 +8,10 @@
 </p>
 <hr>
 <h2>📷Screenshots</h2>
-<p align = "center"><img src = "Chemistry_Clash/assets/Screenshots/mainMenu.png" alt = "main menu screenshot" width = 600px>
-<img src = "Chemistry_Clash/assets/Screenshots/Settings.png" alt = "Settings screenshot" width = 600px></p>
+<p align = "center"><img src = "Chemistry_Clash/assets/Screenshots/Main Menu.png" alt = "main menu screenshot" width = 600px>
+<img src = "Chemistry_Clash/assets/Screenshots/Settings.png" alt = "Settings screenshot" width = 600px>
+<img src = "Chemistry_Clash/assets/Screenshots/Play Menu.png"  alt = "Play Menu screenshot" width = 600px>
+</p>
 <hr>
 <h2>📥Installation</h2>
 <p>1.Open a terminal on you local machine and clone the repository by the link bellow.</p>

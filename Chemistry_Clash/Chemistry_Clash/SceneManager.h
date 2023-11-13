@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-class SceneManager {
+class SceneManager { // SceneManager Singleton
 public:
 
     static std::shared_ptr<SceneManager> GetInstance()
@@ -32,5 +32,5 @@ private:
     static std::shared_ptr<SceneManager> instance;
     bool isSceneLoaded = 0;
     std::shared_ptr<Scene> scene;
-    std::string sceneString;
+    std::string sceneString = "";
 };

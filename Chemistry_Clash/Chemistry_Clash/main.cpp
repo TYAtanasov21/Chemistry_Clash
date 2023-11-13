@@ -4,7 +4,7 @@
 int main() 
 {
 
-	std::shared_ptr<Manager> manager = Manager::GetInstance();
+	std::shared_ptr<Manager> manager = Manager::GetInstance(); 
 
 	manager->Initialize();
 

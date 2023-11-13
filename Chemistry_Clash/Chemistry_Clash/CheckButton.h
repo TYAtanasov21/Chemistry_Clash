@@ -9,15 +9,17 @@
 
 class CheckButton {
 public:
+
+	// Declare constructor for CheckButton
 	CheckButton(Rectangle body, std::string text, int textSize, Color mainBodyColor, Color checkBoxBodyColor, Color textColor, std::function<void()> lambda, bool isChecked ,bool execLambdaIfClicked = 0);
 
-	void Draw();
+	void Draw(); // Function for drawing check button
 
-	void DrawBorder();
+	void DrawBorder(); // Function for drawing check button border
 
-	bool IsClicked();
+	bool IsClicked(); // Checks if user has clicked on check button box
 
-	void Update();
+	void Update(); 
 private:
 	bool execLambdaIfClicked;
 	bool isChecked;

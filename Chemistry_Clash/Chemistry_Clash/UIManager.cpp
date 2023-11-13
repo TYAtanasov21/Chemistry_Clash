@@ -2,7 +2,7 @@
 
 std::shared_ptr<UIManager> UIManager::instance = nullptr;
 
-void UIManager::AddButton(Button button) {
+void UIManager::AddButton(Button button) { 
 	this->buttonList.push_back(button);
 }
 
@@ -33,7 +33,7 @@ void UIManager::AddQuestion(Question* question) {
 }
 
 
-void UIManager::UpdateAll() {
+void UIManager::UpdateAll() { // Updates all members of all lists 
 	for (auto button : buttonList) {
 		button.Update();
 	}
@@ -48,7 +48,7 @@ void UIManager::UpdateAll() {
 	}
 }
 
-void UIManager::DrawAll() {
+void UIManager::DrawAll() { // Draws all members from all lists
 	for (const auto& rec : rectangleList) {
 		DrawRectangleRec(rec.rec, rec.recColor);
 	}
@@ -73,7 +73,7 @@ void UIManager::DrawAll() {
 	}
 }
 
-void UIManager::UpdateLists() {
+void UIManager::UpdateLists() { // Clears all elements from all lists
 	buttonList.clear();
 	textList.clear();
 	checkButtonList.clear();
@@ -102,6 +102,6 @@ bool UIManager::GetShouldFullscreen() {
 }
 
 
-std::vector<Text*> UIManager::GetTextList() {
+std::vector<Text*> UIManager::GetTextList() { // Returns text list
 	return this->textList;
 }

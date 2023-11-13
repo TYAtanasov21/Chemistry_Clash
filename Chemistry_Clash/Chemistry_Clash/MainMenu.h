@@ -3,7 +3,7 @@
 
 #include "SceneManager.h"
 
-class MainMenu : public Scene {
+class MainMenu : public Scene { 
 public:
 	void LoadText();
 	void LoadScene();

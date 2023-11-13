@@ -7,15 +7,15 @@
 
 class Player {
 public:
-	Player(int health, int strength, int speed, int armour);
+	Player(int health, int strength, int speed, int armour); // Declare constructor for Player with base stats
 
-	Image GetImage();
+	Image GetImage(); // Gets playerImage
 
-	void ResizeImage(int width, int height);
+	void ResizeImage(int width, int height); // Resizes playerImage
 
-	Texture2D GetTexture();
+	Texture2D GetTexture(); // Gets playerImage as Texture2D
 	
-	int GetHealth();
+	int GetHealth(); 
 
 	int GetStrength();
 
@@ -43,13 +43,13 @@ private:
 
 class Villain {
 public:
-	Villain(int health, int strength, int armour);
+	Villain(int health, int strength, int armour); // Declare constructor for Villain with base stats
 
-	Image GetImage();
+	Image GetImage(); // Gets villainImage
 
-	void ResizeImage(int width, int height);
+	void ResizeImage(int width, int height); // Resizes villainImage
 
-	Texture2D GetTexture();
+	Texture2D GetTexture(); // Gets villainImage as Texture2D
 
 	int GetHealth();
 
@@ -70,7 +70,7 @@ private:
 	std::string villainName;
 };
 
-class GameManager {
+class GameManager { // GameManager Singleton
 public:
 	static std::shared_ptr<GameManager> GetInstance()
 	{
