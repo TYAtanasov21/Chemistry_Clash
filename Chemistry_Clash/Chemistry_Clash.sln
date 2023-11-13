@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chemistry_Clash", "Chemistry_Clash\Chemistry_Clash.vcxproj", "{A9A9DEF3-ECF6-4964-8F95-66FDA4B949FA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Native Unit Test", "Native Unit Test\Native Unit Test.vcxproj", "{D8A513A4-A367-425B-B903-80AD59674FD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{A9A9DEF3-ECF6-4964-8F95-66FDA4B949FA}.Release|x64.Build.0 = Release|x64
 		{A9A9DEF3-ECF6-4964-8F95-66FDA4B949FA}.Release|x86.ActiveCfg = Release|Win32
 		{A9A9DEF3-ECF6-4964-8F95-66FDA4B949FA}.Release|x86.Build.0 = Release|Win32
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Debug|x64.ActiveCfg = Debug|x64
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Debug|x64.Build.0 = Debug|x64
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Debug|x86.ActiveCfg = Debug|Win32
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Debug|x86.Build.0 = Debug|Win32
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Release|x64.ActiveCfg = Release|x64
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Release|x64.Build.0 = Release|x64
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Release|x86.ActiveCfg = Release|Win32
+		{D8A513A4-A367-425B-B903-80AD59674FD4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
