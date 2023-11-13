@@ -6,10 +6,10 @@
 #include "Macro.h"
 #include "SceneChanger.h"
 
-class Manager
+class Manager // Manager Singleton
 {
 public:
-    ~Manager();
+    ~Manager(); // Destructor
 
     static std::shared_ptr<Manager> GetInstance()
     {
@@ -19,7 +19,7 @@ public:
         return instance;
     }
 
-    void Initialize();
+    void Initialize(); 
 
     void Start();
 

@@ -1,6 +1,6 @@
 #include "Input.h"
 
-Input::Input(Rectangle body, int textSize, Color bodyColor, Color textColor, int minInputSize, int maxInputSize,std::function<void()> lambda)
+Input::Input(Rectangle body, int textSize, Color bodyColor, Color textColor, int minInputSize, int maxInputSize,std::function<void()> lambda) // Initialize input constructor
 {
 	this->body = body;
 	this->textSize = textSize;
@@ -11,12 +11,12 @@ Input::Input(Rectangle body, int textSize, Color bodyColor, Color textColor, int
 	this->maxInputSize = maxInputSize;
 	this->minInputSize = minInputSize;
 }
-bool Input::IsHovered()
+bool Input::IsHovered() // Check if user is hovering over input body
 {
 	return (CheckCollisionPointRec(GetMousePosition(), body));
 }
 
-void Input::Draw() {
+void Input::Draw() { // Draws input field
 	if (IsHovered()||isSelected||!canInput)
 	{
 		DrawRectangleRec(body, bodyColorSecondary);
@@ -31,7 +31,7 @@ void Input::Draw() {
 	DrawBorder();
 }
 
-void Input::DrawBorder() {
+void Input::DrawBorder() { // Draws input field border
 	int offset = 4;
 	int thickness = 4;
 	Rectangle border = body;
@@ -52,7 +52,7 @@ void Input::Update() {
 	AddChar();
 }
 
-void Input::Select() {
+void Input::Select() { // Selects input field if user clicks on input body
 	if (IsMouseButtonPressed(0)) {
 		this->isSelected = (CheckCollisionPointRec(GetMousePosition(), body));
 	}
@@ -62,7 +62,7 @@ bool Input::IsSelected() {
 	return isSelected;
 }
 
-void Input::AddChar() {
+void Input::AddChar() { // Adds character to input string
 	if (isSelected && canInput) {
 		int key = GetKeyPressed();
 

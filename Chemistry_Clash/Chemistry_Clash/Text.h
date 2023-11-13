@@ -15,8 +15,6 @@ public:
 
 	void Draw();
 
-	void Update();
-
 	int GetTextSize();
 
 	void SetText(std::string newText);

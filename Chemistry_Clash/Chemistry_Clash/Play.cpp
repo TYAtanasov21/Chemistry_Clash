@@ -4,7 +4,7 @@
 
 
 
-void Play::LoadScene() {
+void Play::LoadScene() { // Override for virtual LoadScene
 	auto SceneManager = SceneManager::GetInstance();
 	auto UIManager = UIManager::GetInstance();
 	auto player = GameManager::GetInstance()->GetPlayer();

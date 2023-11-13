@@ -6,22 +6,22 @@
 #include "Input.h"
 #include "Question.h"
 
-struct  RectangleV2
+struct  RectangleV2 // Container for Rectangle
 {
     Rectangle rec;
     Color recColor;
 };
 
-struct TextureV {
+struct TextureV { // Container for Texture2D
     Texture2D texture;
     Rectangle frameRec;
     Vector2 pos;
 };
 
-class UIManager {
+class UIManager { // UIManager Singleton
 public:
 
-    static std::shared_ptr<UIManager> GetInstance()
+    static std::shared_ptr<UIManager> GetInstance() 
     {
         if (instance == nullptr)
             instance = std::make_shared<UIManager>();
@@ -29,9 +29,9 @@ public:
         return instance;
     }
 
-    void DrawAll();
+    void DrawAll(); // Draws all elements
 
-    void UpdateAll();
+    void UpdateAll(); // Updates all elements
 
     void AddButton(Button button);
 

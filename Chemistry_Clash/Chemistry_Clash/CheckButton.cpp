@@ -24,7 +24,7 @@ CheckButton::CheckButton(Rectangle mainBody, std::string text, int textSize, Col
 
 void CheckButton::Draw() {
 
-	DrawRectangleRec(mainBody, mainBodyColor);
+	DrawRectangleRec(mainBody, mainBodyColor); // Draw main body
 	DrawBorder();
 
 	if (!isChecked) {
@@ -42,7 +42,7 @@ void CheckButton::Draw() {
 	DrawText(text.c_str(), textX, textY, textSize, textColor);
 }
 
-void CheckButton::DrawBorder() {
+void CheckButton::DrawBorder() { // Draws check button border
 	int offset = 5;
 	int thickness = 5;
 	Rectangle border = mainBody;
@@ -58,13 +58,13 @@ void CheckButton::Update() {
 	}
 	if (execLambdaIfClicked) {
 		if (IsClicked()) {
-			lambda();
+			lambda(); 
 		}
 	}
 	else lambda();
 
 }
 
-bool CheckButton::IsClicked() {
+bool CheckButton::IsClicked() {  // Checks if check box is clicked
 		return (IsMouseButtonPressed(0) && CheckCollisionPointRec(GetMousePosition(), checkBoxBody));
 }

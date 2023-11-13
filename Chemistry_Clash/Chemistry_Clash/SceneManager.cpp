@@ -2,7 +2,7 @@
 
 std::shared_ptr<SceneManager> SceneManager::instance = nullptr;
 
-void SceneManager::LoadScene() {
+void SceneManager::LoadScene() { // Loads current scene
     if (!isSceneLoaded) {
         UIManager::GetInstance()->UpdateLists();
         scene->LoadScene();
@@ -12,14 +12,14 @@ void SceneManager::LoadScene() {
 
 }
 
-void SceneManager::UpdateScene() {
+void SceneManager::UpdateScene() { // Updates current scene
     scene->ClearSceneBackground();
     UIManager::GetInstance()->UpdateAll();
     UIManager::GetInstance()->DrawAll();
 
 }
 
-void SceneManager::ChangeScene(std::string scene) {
+void SceneManager::ChangeScene(std::string scene) { // Changes to new scene
     isSceneLoaded = 0;
     this->scene = nullptr;
     this->sceneString = scene;

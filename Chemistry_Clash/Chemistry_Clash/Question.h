@@ -12,6 +12,7 @@
 
 class Question {
 public:
+
 	Question(Text* question, std::string answer, Button* check, Input* answerField, int textSize);
 
 	void Draw();

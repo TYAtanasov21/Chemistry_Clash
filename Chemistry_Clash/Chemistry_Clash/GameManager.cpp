@@ -1,22 +1,21 @@
 #include "GameManager.h"
-//Initialize player class
 
-std::shared_ptr<GameManager> GameManager::instance = nullptr;
+std::shared_ptr<GameManager> GameManager::instance = nullptr; 
 
-Player::Player(int health, int strength, int speed, int armour) {
+Player::Player(int health, int strength, int speed, int armour) { // Initialize Player constructor
 	this->health = health;
 	this->strength = strength;
 	this->speed = speed;
 	this->armour = armour;
 }
 
-Image Player::GetImage() { return playerImage; }
+Image Player::GetImage() { return playerImage; } // Gets player image
 
-void Player::ResizeImage(int width, int height) {
+void Player::ResizeImage(int width, int height) { // Resizes player image
 	ImageResize(&playerImage, width, height);
 }
 
-Texture2D Player::GetTexture() { return LoadTextureFromImage(playerImage); }
+Texture2D Player::GetTexture() { return LoadTextureFromImage(playerImage); } // Gets Texture2D from player image
 
 int Player::GetHealth() { return health; }
 
@@ -45,14 +44,14 @@ void Player::SetArmour(int value) {
 
 
 //Initialize villian class
-Villain::Villain(int health, int strength, int armour)
+Villain::Villain(int health, int strength, int armour) // Initializes Villain constructor
 {
 	this->health = health;
 	this->strength = strength;
 	this->armour = armour;
 
 	SetRandomSeed(time(NULL));
-	this->identifier = GetRandomValue(1, 3);
+	this->identifier = GetRandomValue(1, 3); // Choses random value between 1 and 3 for villain image
 
 	if (identifier == 1)
 	{
@@ -71,12 +70,12 @@ Villain::Villain(int health, int strength, int armour)
 	}
 }
 
-Image Villain::GetImage() { return villainImage; }
+Image Villain::GetImage() { return villainImage; } // Gets villain image
 
-void Villain::ResizeImage(int width, int height) {
+void Villain::ResizeImage(int width, int height) { // Resizes villain image
 	ImageResize(&villainImage, width, height);
 }
-Texture2D Villain::GetTexture() { return LoadTextureFromImage(villainImage); }
+Texture2D Villain::GetTexture() { return LoadTextureFromImage(villainImage); } // Gets Texture2D from villain image
 
 int Villain::GetHealth() { return health; }
 
@@ -86,15 +85,15 @@ int Villain::GetArmour() { return armour; }
 
 std::string Villain::GetVillainName() { return villainName; }
 
-int Villain::GetIdentifier() { return identifier; }
+int Villain::GetIdentifier() { return identifier; } 
 
 
 
-std::shared_ptr<Player> GameManager::GetPlayer() {
+std::shared_ptr<Player> GameManager::GetPlayer() { // Gets instance from player class
 	return this->player;
 }
 
-std::shared_ptr<Villain> GameManager::GetVillain() {
+std::shared_ptr<Villain> GameManager::GetVillain() {  // Gets instance from villain class
 	return this->villain;
 }
 

@@ -1,8 +1,8 @@
 #include "Settings.h"
 
-void Settings::LoadScene() {
+void Settings::LoadScene() {  // Override for virtual LoadScene
 
-	auto UIManager = UIManager::GetInstance();
+	auto UIManager = UIManager::GetInstance(); // assign UIManager instance for convenience
 
 	CheckButton* fullScreen = new CheckButton({ (SCREEN_WIDTH - 500) / 2,  200, 500, 100 }, "FULLSCREEN", 50, PURPLE, WHITE, BLACK,
 		[UIManager]() {

@@ -6,7 +6,7 @@
 
 #include "UIManager.h"
 
-class Scene {
+class Scene { // Abstract class
 public:
 	virtual void LoadScene() = 0;
 

@@ -12,15 +12,15 @@ class Input {
 public:
 	Input(Rectangle body, int textSize, Color bodyColor, Color textColor, int minInputSize, int maxInputSize, std::function<void()> lambda);
 
-	void Draw();
+	void Draw(); // Function to draw input
 
-	void DrawBorder();
+	void DrawBorder(); // Function to draw input border
 
-	bool IsSelected();
+	bool IsSelected(); 
 
-	void Select();
+	void Select(); // Selects input field
 
-	void AddChar();
+	void AddChar(); // Adds character to inputed text
 
 	bool IsHovered();
 
@@ -33,7 +33,7 @@ public:
 	std::string GetInputString();
 
 private:
-	bool canInput = 1;
+	bool canInput = 1; // Permission to input
 
 	int maxInputSize;
 	int minInputSize;
