@@ -25,6 +25,8 @@ public:
 
     std::string GetSceneString();
 
+    void ReloadText();
+
 private:
 
     static std::shared_ptr<SceneManager> instance;

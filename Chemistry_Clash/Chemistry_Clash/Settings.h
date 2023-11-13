@@ -5,4 +5,5 @@
 class Settings : public Scene {
 public:
 	void LoadScene();
+	void LoadText() {};
 };

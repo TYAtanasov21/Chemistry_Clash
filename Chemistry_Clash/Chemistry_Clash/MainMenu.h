@@ -5,5 +5,6 @@
 
 class MainMenu : public Scene {
 public:
+	void LoadText();
 	void LoadScene();
 };

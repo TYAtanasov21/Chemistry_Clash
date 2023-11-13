@@ -10,6 +10,8 @@ class Scene {
 public:
 	virtual void LoadScene() = 0;
 
+	virtual void LoadText() = 0;
+
 	void ClearSceneBackground() {
 		ClearBackground(backgroundColor);
 	}

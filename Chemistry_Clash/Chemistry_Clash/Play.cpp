@@ -1,71 +1,47 @@
 #include "Play.h"
 #include "Manager.h"
 
+
+
+
 void Play::LoadScene() {
-
-	Player p(100, 10, 10, 50);
-
+	auto SceneManager = SceneManager::GetInstance();
 	auto UIManager = UIManager::GetInstance();
+	auto player = GameManager::GetInstance()->GetPlayer();
+	auto villain = GameManager::GetInstance()->GetVillain();
 
 	UIManager->AddRec({ {20, 20, 300 , SCREEN_HEIGHT - 100 - 60}, PURPLE });
-	UIManager->AddText({ "QUIZ", 60, {(SCREEN_WIDTH - (float)MeasureText("QUIZ", 60))/2, 20}, BLACK });
-	UIManager->AddText({ "YOUR STATS", 33, {40 + (260 - (float)MeasureText("YOUR STATS", 33)) / 2, 40} , BLACK });
 
-	std::string healthStatStringPlayer = "Health: " + std::to_string(p.GetHealth());
-	std::string strengthStatStringPlayer = "Strength: " + std::to_string(p.GetStrength());
-	std::string speedStatStringPlayer = "Speed: " + std::to_string(p.GetSpeed());
-	std::string armourStatStringPlayer = "Armour: " + std::to_string(p.GetArmour());
-
-	UIManager->AddText({ healthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(healthStatStringPlayer.c_str(), 30)) / 2, 110} , BLACK,
-		[&healthStatStringPlayer, &p]() {
-		healthStatStringPlayer = "Health: " + std::to_string(p.GetHealth());
-	} });
-	UIManager->AddText({ strengthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(strengthStatStringPlayer.c_str(), 30)) / 2, 150 } , BLACK,
-		[&strengthStatStringPlayer, &p]() {
-		strengthStatStringPlayer = "Health: " + std::to_string(p.GetStrength());
-	} });
-
-	UIManager->AddText({ speedStatStringPlayer, 30, {40 + (260 - (float)MeasureText(speedStatStringPlayer.c_str(), 30)) / 2, 190} , BLACK,
-		[&speedStatStringPlayer, &p]() {
-		speedStatStringPlayer = "Health: " + std::to_string(p.GetSpeed());
-	} });
-	UIManager->AddText({ armourStatStringPlayer, 30, {40 + (260 - (float)MeasureText(armourStatStringPlayer.c_str(), 30)) / 2, 230} , BLACK,
-		[&armourStatStringPlayer, &p]() {
-		armourStatStringPlayer = "Health: " + std::to_string(p.GetArmour());
-	} });
 
 	UIManager->AddButton({ {20 - 2.5, SCREEN_HEIGHT - 100 - 20, 300, 100}, "QUIT", 50, PURPLE, BLACK, []() {
-		Manager::GetInstance()->Close(); 
+		Manager::GetInstance()->Close();
 	} });
 
-	p.ResizeImage(240 * 3, 240 * 3);
-	UIManager->AddTexture({ p.GetTexture(), {0, 0, (float)p.GetTexture().width / 3, (float)p.GetTexture().height / 3}, {40, 290} });
+	player->ResizeImage(240 * 3, 240 * 3);
+	UIManager->AddTexture({ player->GetTexture(), {0, 0, (float)player->GetTexture().width / 3, (float)player->GetTexture().height / 3}, {40, 290} });
 
 
-	Villain v(150, 15, 100);
+	LoadText();
+
+
 	UIManager->AddRec({ {SCREEN_WIDTH - 320, 20, 300 , SCREEN_HEIGHT - 100 - 60}, PURPLE });
-	UIManager->AddText({ "VILLAIN STATS", 33, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText("VILLAIN STATS", 33)) / 2, 40} , BLACK });
 
-	std::string healthStatStringVillain = "Health: " + std::to_string(p.GetHealth());
-	std::string strengthStatStringVillain = "Strength: " + std::to_string(p.GetStrength());
-	std::string armourStatStringVillain = "Armour: " + std::to_string(p.GetArmour());
 
-	UIManager->AddText({ healthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(healthStatStringVillain.c_str(), 30)) / 2, 110} , BLACK, []() {}});
-	UIManager->AddText({ strengthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(strengthStatStringVillain.c_str(), 30)) / 2, 150 } , BLACK });
-	UIManager->AddText({ armourStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(armourStatStringVillain.c_str(), 30)) / 2, 190} , BLACK });
-
-	if (v.GetIdentifier() == 1)
+	if (villain->GetIdentifier() == 1)
 	{
-		v.ResizeImage(240 * 3, 240 * 2);
-		UIManager->AddTexture({ v.GetTexture(), {0, 0, (float)v.GetTexture().width / 3, (float)v.GetTexture().height / 2}, {(SCREEN_WIDTH - 290), 290} });
+		villain->ResizeImage(240 * 3, 240 * 2);
+		UIManager->AddTexture({ villain->GetTexture(), {0, 0, (float)villain->GetTexture().width / 3, (float)villain->GetTexture().height / 2}, {(SCREEN_WIDTH - 290), 290} });
 	}
 	else
 	{
-		v.ResizeImage(240 * 3, 240);
-		UIManager->AddTexture({ v.GetTexture(), {0, 0, (float)v.GetTexture().width / 3, (float)v.GetTexture().height}, {(SCREEN_WIDTH - 290), 290} });
+		villain->ResizeImage(240 * 3, 240);
+		UIManager->AddTexture({ villain->GetTexture(), {0, 0, (float)villain->GetTexture().width / 3, (float)villain->GetTexture().height}, {(SCREEN_WIDTH - 290), 290} });
 	}
 
-	UIManager->AddButton({ {(SCREEN_WIDTH - 320) - 2.5, SCREEN_HEIGHT - 120, 300, 100}, "FIGHT!", 50, PURPLE, BLACK, []() {} });
+	UIManager->AddButton({ {(SCREEN_WIDTH - 320) - 2.5, SCREEN_HEIGHT - 120, 300, 100}, "FIGHT!", 50, PURPLE, BLACK,
+		[]() {
+		SceneManager::GetInstance()->ChangeScene("Game");
+		} });
 
 
 	/*Questions*/
@@ -97,14 +73,15 @@ void Play::LoadScene() {
 		});
 
 
-	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly1, &button1, &input1, &p]() {
+	Button* button1 = new Button({ SCREEN_WIDTH - 340 - 100, 100, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly1, &button1, &input1, &player]() {
 		input1->CallLambda();
 		if (answeredCorrectly1) {
-			p.SetArmour(p.GetArmour() + 10);
-			std::cout << p.GetArmour();
+			player->SetHealth(player->GetHealth() + 50);
+			SceneManager::GetInstance()->ReloadText();
 		}
 		input1->ToggleCanInput();
 		button1->ToggleClicking();
+
 		});
 
 	Question* question1 = new Question(text1, answer, button1, input1, 40);
@@ -139,11 +116,11 @@ void Play::LoadScene() {
 		});
 
 
-	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 200, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly2, &button2, &input2, &p]() {
+	Button* button2 = new Button({ SCREEN_WIDTH - 340 - 100, 200, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly2, &button2, &input2, &player]() {
 		input2->CallLambda();
 		if (answeredCorrectly2) {
-			p.SetArmour(p.GetArmour() + 10);
-			std::cout << p.GetArmour();
+			player->SetStrength(player->GetStrength() + 5);
+			SceneManager::GetInstance()->ReloadText();
 		}
 		input2->ToggleCanInput();
 		button2->ToggleClicking();
@@ -151,7 +128,7 @@ void Play::LoadScene() {
 
 	Question* question2 = new Question(text2, answer, button2, input2, 40);
 	UIManager->AddQuestion(question2);
-// -------------------------------------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------------------------------------
 
 	SetRandomSeed(time(NULL));
 	randomValue = GetRandomValue(1, 3);
@@ -181,11 +158,11 @@ void Play::LoadScene() {
 		});
 
 
-	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 300, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly3, &button3, &input3, &p]() {
+	Button* button3 = new Button({ SCREEN_WIDTH - 340 - 100, 300, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly3, &button3, &input3, &player]() {
 		input3->CallLambda();
 		if (answeredCorrectly3) {
-			p.SetArmour(p.GetArmour() + 10);
-			std::cout << p.GetArmour();
+			player->SetSpeed(player->GetSpeed() + 5);
+			SceneManager::GetInstance()->ReloadText();
 		}
 		input3->ToggleCanInput();
 		button3->ToggleClicking();
@@ -194,7 +171,7 @@ void Play::LoadScene() {
 	Question* question3 = new Question(text3, answer, button3, input3, 40);
 	UIManager->AddQuestion(question3);
 
-// -------------------------------------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------------------------------------
 
 	SetRandomSeed(time(NULL));
 	randomValue = GetRandomValue(1, 3);
@@ -222,14 +199,15 @@ void Play::LoadScene() {
 		});
 
 
-	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 400, 100, 40 }, "Check", 30, PURPLE, BLACK, [&answeredCorrectly4, &button4, &input4, &p]() {
+	Button* button4 = new Button({ SCREEN_WIDTH - 340 - 100, 400, 100, 40 }, "Check", 30, PURPLE, BLACK, [answeredCorrectly4, &button4, &input4, &player]() {
 		input4->CallLambda();
+		std::cout << answeredCorrectly4;
 		if (answeredCorrectly4) {
-			p.SetArmour(p.GetArmour() + 10);
-			std::cout << p.GetArmour();
+			player->SetSpeed(player->GetSpeed() + 5);
+			SceneManager::GetInstance()->ReloadText();
 		}
-			input4->ToggleCanInput();
-			button4->ToggleClicking();
+		input4->ToggleCanInput();
+		button4->ToggleClicking();
 		});
 
 	Question* question4 = new Question(text4, answer, button4, input4, 40);
@@ -238,3 +216,39 @@ void Play::LoadScene() {
 	backgroundColor = LIGHTPURPLE;
 }
 
+
+
+
+
+
+void Play::LoadText() {
+	auto UIManager = UIManager::GetInstance();
+	auto player = GameManager::GetInstance()->GetPlayer();
+	auto villain = GameManager::GetInstance()->GetVillain ();
+	
+	UIManager->AddText(new Text({ "QUIZ", 60, {(SCREEN_WIDTH - (float)MeasureText("QUIZ", 60)) / 2, 20}, BLACK }));
+	UIManager->AddText(new Text({ "YOUR STATS", 33, {40 + (260 - (float)MeasureText("YOUR STATS", 33)) / 2, 40} , BLACK }));
+
+	std::string healthStatStringPlayer = "Health: " + std::to_string(player->GetHealth());
+	std::string strengthStatStringPlayer = "Strength: " + std::to_string(player->GetStrength());
+	std::string speedStatStringPlayer = "Speed: " + std::to_string(player->GetSpeed());
+	std::string armourStatStringPlayer = "Armour: " + std::to_string(player->GetArmour());
+
+	UIManager->AddText(new Text({ healthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(healthStatStringPlayer.c_str(), 30)) / 2, 110} , BLACK }));
+
+
+	UIManager->AddText(new Text({ strengthStatStringPlayer, 30, {40 + (260 - (float)MeasureText(strengthStatStringPlayer.c_str(), 30)) / 2, 150 } , BLACK }));
+	UIManager->AddText(new Text({ speedStatStringPlayer, 30, {40 + (260 - (float)MeasureText(speedStatStringPlayer.c_str(), 30)) / 2, 190} , BLACK }));
+	UIManager->AddText(new Text({ armourStatStringPlayer, 30, {40 + (260 - (float)MeasureText(armourStatStringPlayer.c_str(), 30)) / 2, 230} , BLACK }));
+
+	UIManager->AddText(new Text({ "VILLAIN STATS", 33, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText("VILLAIN STATS", 33)) / 2, 40} , BLACK }));
+
+	std::string healthStatStringVillain = "Health: " + std::to_string(villain->GetHealth());
+	std::string strengthStatStringVillain = "Strength: " + std::to_string(villain->GetStrength());
+	std::string armourStatStringVillain = "Armour: " + std::to_string(villain->GetArmour());
+
+	UIManager->AddText(new Text({ healthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(healthStatStringVillain.c_str(), 30)) / 2, 110} , BLACK }));
+	UIManager->AddText(new Text({ strengthStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(strengthStatStringVillain.c_str(), 30)) / 2, 150 } , BLACK }));
+	UIManager->AddText(new Text({ armourStatStringVillain, 30, {(SCREEN_WIDTH - 300) + (260 - (float)MeasureText(armourStatStringVillain.c_str(), 30)) / 2, 190} , BLACK }));
+
+}

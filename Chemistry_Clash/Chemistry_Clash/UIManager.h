@@ -39,7 +39,7 @@ public:
 
     void AddInput(Input* input);
 
-    void AddText(Text text);
+    void AddText(Text* text);
 
     void AddRec(RectangleV2 rec);
 
@@ -57,6 +57,7 @@ public:
     
     bool GetShouldFullscreen();
 
+    std::vector<Text*> GetTextList();
 private:
 
     bool shouldFullscreen = 0;
@@ -68,7 +69,7 @@ private:
 
     std::vector<CheckButton*> checkButtonList;
 
-    std::vector<Text> textList;
+    std::vector<Text*> textList;
 
     std::vector<RectangleV2> rectangleList;
 

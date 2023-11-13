@@ -36,3 +36,9 @@ std::shared_ptr<Scene> SceneManager::GetScene() {
 std::string SceneManager::GetSceneString() {
     return this->sceneString;
 }
+
+void SceneManager::ReloadText() {
+    UIManager::GetInstance()->GetTextList().clear();
+    scene->LoadText();
+    std::cout << "Reloaded";
+}

@@ -11,13 +11,15 @@ class Text {
 public:
 
 
-	Text(std::string text, int textSize, Vector2 textPos, Color textColor, std::function<void()> updateLambda = 0);
+	Text(std::string text, int textSize, Vector2 textPos, Color textColor);
 
 	void Draw();
 
 	void Update();
 
 	int GetTextSize();
+
+	void SetText(std::string newText);
 
 
 

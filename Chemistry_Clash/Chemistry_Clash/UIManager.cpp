@@ -16,7 +16,7 @@ void UIManager::AddInput(Input* input) {
 
 
 
-void UIManager::AddText(Text text) {
+void UIManager::AddText(Text* text) {
 	this->textList.push_back(text);
 }
 
@@ -61,8 +61,8 @@ void UIManager::DrawAll() {
 	for (CheckButton* checkButton : checkButtonList) {
 		checkButton->Draw();
 	}
-	for (Text text : textList) {
-		text.Draw();
+	for (Text* text : textList) {
+		text->Draw();
 	}
 	for (Input* input : intputList) {
 		input->Draw();
@@ -99,4 +99,9 @@ bool UIManager::GetShouldFpsShow() {
 
 bool UIManager::GetShouldFullscreen() {
 	return this->shouldFullscreen;
+}
+
+
+std::vector<Text*> UIManager::GetTextList() {
+	return this->textList;
 }

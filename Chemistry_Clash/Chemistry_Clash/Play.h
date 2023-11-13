@@ -6,4 +6,6 @@
 class Play : public Scene {
 public:
 	void LoadScene();
+
+	void LoadText();
 };

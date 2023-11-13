@@ -70,4 +70,29 @@ private:
 	std::string villainName;
 };
 
+class GameManager {
+public:
+	static std::shared_ptr<GameManager> GetInstance()
+	{
+		if (instance == nullptr)
+			instance = std::make_shared<GameManager>();
 
+		return instance;
+	}
+
+	std::shared_ptr<Player> GetPlayer();
+	std::shared_ptr<Villain> GetVillain();
+
+	Image GetBackgroundImage();
+	void ResizeBackgroundImage();
+
+private:
+	static std::shared_ptr<GameManager> instance;
+
+
+	std::shared_ptr<Player> player = std::make_shared<Player>(100, 10, 10, 50);
+	std::shared_ptr<Villain> villain = std::make_shared<Villain>(150, 15, 50);
+
+	Image backgroundImage = LoadImage("../assets/Background.jpg");
+
+};

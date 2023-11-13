@@ -1,5 +1,8 @@
 #include "GameManager.h"
 //Initialize player class
+
+std::shared_ptr<GameManager> GameManager::instance = nullptr;
+
 Player::Player(int health, int strength, int speed, int armour) {
 	this->health = health;
 	this->strength = strength;
@@ -85,3 +88,20 @@ std::string Villain::GetVillainName() { return villainName; }
 
 int Villain::GetIdentifier() { return identifier; }
 
+
+
+std::shared_ptr<Player> GameManager::GetPlayer() {
+	return this->player;
+}
+
+std::shared_ptr<Villain> GameManager::GetVillain() {
+	return this->villain;
+}
+
+Image GameManager::GetBackgroundImage() {
+	return this->backgroundImage;
+}
+
+void GameManager::ResizeBackgroundImage() {
+	ImageResize(&this->backgroundImage, SCREEN_WIDTH, SCREEN_HEIGHT);
+}

@@ -1,11 +1,10 @@
 #include "Text.h"
 
-Text::Text(std::string text, int textSize, Vector2 textPos, Color textColor, std::function<void()> updateLambda) {
+Text::Text(std::string text, int textSize, Vector2 textPos, Color textColor) {
 	this->text = text;
 	this->textSize = textSize;
 	this->textPos = textPos;
 	this->textColor = textColor;
-	this->updateLambda = updateLambda;
 }
 
 void Text::Draw() {
@@ -13,9 +12,13 @@ void Text::Draw() {
 }
 
 void Text::Update() {
-	updateLambda();
+
 }
 
 int Text::GetTextSize() {
 	return MeasureText(text.c_str(), textSize);
+}
+
+void Text::SetText(std::string newText) {
+	this->text = newText;
 }
