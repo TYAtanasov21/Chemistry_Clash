@@ -1,5 +1,5 @@
 #include "Input.h"
-
+//input.h
 Input::Input(Rectangle body, int textSize, Color bodyColor, Color textColor, int minInputSize, int maxInputSize,std::function<void()> lambda) // Initialize input constructor
 {
 	this->body = body;
