@@ -15,7 +15,7 @@
 <hr>
 <h2>📥Installation</h2>
 <p>1.Open a terminal on you local machine and clone the repository by the link bellow.</p>
-<p>2.Run the application and you are ready to go</p>
+<p>2.Run the application and you are ready to go!</p>
 <pre>https://github.com/TYAtanasov21/Chemistry_Clash.git</pre>
 <hr>
 <h2>📃Documents</h2>
